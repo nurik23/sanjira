@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Kyrgyz pedigree</string>
+    <string name="enter_menu1">Админ</string>
+    <string name="enter_menu2">Гость</string>
+    <string name="btn_mainact_adddata">Ввести свои данные</string>
+    <string name="btn_mainact_showsanjyra">Посмотреть "санжыра"</string>
+
+    <string name="btn_home">Home</string>
+    <string name="text_main_adddataact">Введите свои личные данные</string>
+    <string name="text_name_adddataact">Ф.И.О.:</string>
+    <string name="text_familie_adddataact">E-Mail:</string>
+    <string name="text_burthday_adddataact">День рождения:</string>
+    <string name="text_proishoj_adddataact">Происхождение:</string>
+    <string name="text_mestojitel_adddataact">Место проживания:</string>
+    <string name="text_rod_adddataact">Род:</string>
+    <string name="btn_save_adddataact">Сохранить</string>
+    <string name="btn_select_showsanjyra">Ввод</string>
+    <string name="text_select_showsanjyra">Выберите из списка ниже и нажмите кнопку</string>
+    <string name="textOnKanat">Выбрать из он канат</string>
+    <string name="textSolKanat">Выбрать из сол канат</string>
+    <string name="textIchkilik">Выбрать из ичкилик</string>
+    <string name="selectacttosanjyra">Выберите из списка ниже</string>
+    <string name="text_deletenote"><![CDATA[Введите <ID> записи которую хотите удалить]]></string>
+    <string name="textDescription1">Kyrgyzpedigree - отличный способ найти своих родственников по родословной.</string>
+    <string name="textDescription2">Kyrgyzpedigree - это наиболее простой способ, посмотреть и понаблюдать, каких родственников имеете по родословной и где они проживают.</string>
+    <string name="textDecription7"><![CDATA[* Просмотреть древо <Санжыра> - родословная кыргызского народа.]]></string>
+
+    <string-array name="sanjyraAllList">
+        <item>Саруу</item>
+        <item>Кушчу</item>
+        <item>Карабагыш</item>
+        <item>Мундуз</item>
+        <item>Чонбагыш</item>
+        <item>Кытай</item>
+        <item>Жетиген</item>
+        <item>Басыз</item>
+        <item>Карачоро</item>
+        <item>Саяк</item>
+        <item>Монолдор</item>
+        <item>Сарыбагыш</item>
+        <item>Солто</item>
+        <item>Бугу</item>
+        <item>Азык</item>
+        <item>Монгуш</item>
+        <item>Черик</item>
+        <item>Багыш</item>
+        <item>Адыгине</item>
+        <item>Жедигер</item>
+        <item>Ават</item>
+        <item>Бостон</item>
+        <item>Кыдыршаа</item>
+        <item>Доолос</item>
+        <item>Найман</item>
+        <item>Канды</item>
+        <item>Кесек</item>
+        <item>Жоокесек</item>
+        <item>Каратейит</item>
+        <item>Нойгут</item>
+        <item>Кыпчак</item>
+    </string-array>
+
+    <string-array name="sanjyraPodrod">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+    <string-array name="sanjyraPodrod2">
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+</resources>
