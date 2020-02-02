@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Kyrgyz pedigree</string>
+    <string name="enter_menu1">Only for staff</string>
+    <string name="enter_menu2">Welcome to Kyrguz Sanjira!</string>
+    <string name="btn_mainact_adddata">Enter your details</string>
+    <string name="btn_mainact_showsanjyra">View "Sanjira"</string>
+
+    <string name="btn_home">Home</string>
+    <string name="text_main_adddataact">Enter your personal details</string>
+    <string name="text_name_adddataact">Full name:</string>
+    <string name="text_familie_adddataact">E-Mail:</string>
+    <string name="text_burthday_adddataact">Birthday:</string>
+    <string name="text_proishoj_adddataact">Origin:</string>
+    <string name="text_mestojitel_adddataact">Place of residence:</string>
+    <string name="text_name_dad">Dads full name:</string>
+    <string name="text_name_mom">Moms full name:</string>
+    <string name="text_rod_adddataact">Family</string>
+    <string name="btn_save_adddataact">Save</string>
+    <string name="btn_select_showsanjyra">Enter</string>
+    <string name="text_select_showsanjyra">Select from the list below and click</string>
+    <string name="textOnKanat">Выбрать из он канат</string>
+    <string name="textSolKanat">Выбрать из сол канат</string>
+    <string name="textIchkilik">Выбрать из ичкилик</string>
+    <string name="selectacttosanjyra">Select from the list below</string>
+    <string name="text_deletenote"><![CDATA[Enter <ID> records you want to delete]]></string>
+    <string name="textDescription1">Kyrgyz family tree is a great way to find your relatives by family tree.</string>
+    <string name="textDescription2">Kyrgyz family tree is the easiest way to see and observe which relatives you have by their pedigree and where they live.</string>
+    <string name="textDecription7"><![CDATA[* View the tree <Sanjira> - the pedigree of the Kyrgyz people.]]></string>
+
+    <string-array name="sanjyraAllList">
+        <item>Саруу</item>
+        <item>Кушчу</item>
+        <item>Карабагыш</item>
+        <item>Мундуз</item>
+        <item>Чонбагыш</item>
+        <item>Кытай</item>
+        <item>Жетиген</item>
+        <item>Басыз</item>
+        <item>Карачоро</item>
+        <item>Саяк</item>
+        <item>Монолдор</item>
+        <item>Сарыбагыш</item>
+        <item>Солто</item>
+        <item>Бугу</item>
+        <item>Азык</item>
+        <item>Монгуш</item>
+        <item>Черик</item>
+        <item>Багыш</item>
+        <item>Адыгине</item>
+        <item>Жедигер</item>
+        <item>Ават</item>
+        <item>Бостон</item>
+        <item>Кыдыршаа</item>
+        <item>Доолос</item>
+        <item>Найман</item>
+        <item>Канды</item>
+        <item>Кесек</item>
+        <item>Жоокесек</item>
+        <item>Каратейит</item>
+        <item>Нойгут</item>
+        <item>Кыпчак</item>
+    </string-array>
+
+    <string-array name="sanjyraPodrod">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+    <string-array name="sanjyraPodrod2">
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+</resources>
