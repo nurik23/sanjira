@@ -29,9 +29,8 @@ public class PersonController {
     @PostMapping
     public ResponseEntity savePerson(HttpEntity<Person> httpEntity) {
         Person person = httpEntity.getBody();
+        sendEmail(person, personService.getPersonListByPodrod(person.getPodrod()));
         personService.savePerson(person);
-        sendEmail(personService.getPersonListByPodrod(person.getPodrod()));
-
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -62,7 +61,7 @@ public class PersonController {
         return new ResponseEntity<>(personService.getPersonList(), HttpStatus.OK);
     }
 
-    private void sendEmail(List<Person> receivers) {
+    private void sendEmail(Person registeredPerson, List<Person> receivers) {
         final String username = "sanjyra.kyrgyzfamile@bk.ru";
         final String password = "Karpinka23";
 
@@ -81,11 +80,9 @@ public class PersonController {
 
         receivers.forEach(receiver -> {
             String theme = "Санжыра";
-            String description = "В вашем роду " + receiver.getPodrod() + " зарегистрировался " + receiver.getName() + " " + receiver.getNamedad();
+            String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName()  + "   " +  registeredPerson.getGodrojdeniya()  + " года рождения !  ";
             try {
-
                 Message message = new MimeMessage(session);
-
                 message.setFrom(new InternetAddress(username));
                 message.setRecipients(
                         Message.RecipientType.TO,
@@ -93,11 +90,11 @@ public class PersonController {
                 );
                 message.setSubject(theme);
                 message.setText(description);
-
                 Transport.send(message);
+                System.out.println("Sent to: " + receiver.getEmail());
 
-                System.out.println("Done");
-
+            } catch (SendFailedException e) {
+                System.out.println("Failed to send to: " + receiver.getEmail());
             } catch (MessagingException e) {
                 e.printStackTrace();
             }

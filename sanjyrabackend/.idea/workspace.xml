@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ae9c40-5b92-4748-85a2-e9467a4939ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Kyrgyzpedigree/app/src/main/java/com/example/kyrgyzpedigree/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Kyrgyzpedigree/app/src/main/java/com/example/kyrgyzpedigree/DatabaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kg/sanjyra/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kg/sanjyra/controller/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kg/sanjyra/controller/PersonController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kg/sanjyra/controller/PersonController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kg/sanjyra/controller/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kg/sanjyra/controller/PersonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +31,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
@@ -76,7 +83,8 @@
       <workItem from="1581103754760" duration="4261000" />
       <workItem from="1581108433820" duration="8806000" />
       <workItem from="1581238121010" duration="218000" />
-      <workItem from="1581239261771" duration="633000" />
+      <workItem from="1581239261771" duration="1755000" />
+      <workItem from="1581254558346" duration="1278000" />
     </task>
     <servers />
   </component>
@@ -88,7 +96,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
