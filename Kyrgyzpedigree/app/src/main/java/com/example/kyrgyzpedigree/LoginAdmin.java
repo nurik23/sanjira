@@ -1,7 +1,6 @@
 package com.example.kyrgyzpedigree;
 
 import android.content.Intent;
-//import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,7 +37,7 @@ public class LoginAdmin extends AppCompatActivity {
                 }
                 else {
                     Toast toast2 = Toast.makeText(getApplicationContext(),
-                            "Вы неправильно ввели", Toast.LENGTH_SHORT);
+                            "You entered incorrectly", Toast.LENGTH_SHORT);
                     toast2.show();
                 }
             }

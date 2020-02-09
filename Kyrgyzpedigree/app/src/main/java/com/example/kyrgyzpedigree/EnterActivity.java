@@ -1,7 +1,6 @@
 package com.example.kyrgyzpedigree;
 
 import android.content.Intent;
-//import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -67,7 +66,7 @@ public class EnterActivity extends AppCompatActivity {
         {
             case R.id.help:
                 Toast toast2 = Toast.makeText(getApplicationContext(),
-                        "О приложении", Toast.LENGTH_SHORT);
+                        "About App", Toast.LENGTH_SHORT);
                 toast2.show();
                 intentToMenu2 = new Intent(EnterActivity.this, infoActivity.class);
                 startActivity(intentToMenu2);

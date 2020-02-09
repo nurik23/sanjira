@@ -1,29 +1,34 @@
 <resources>
     <string name="app_name">Kyrgyz pedigree</string>
-    <string name="enter_menu1">Админ</string>
-    <string name="enter_menu2">Гость</string>
-    <string name="btn_mainact_adddata">Ввести свои данные</string>
-    <string name="btn_mainact_showsanjyra">Посмотреть "санжыра"</string>
+    <string name="enter_menu1">Only for staff</string>
+    <string name="enter_menu2">Welcome to Kyrguz Sanjira!</string>
+    <string name="btn_mainact_adddata">Enter your details</string>
+    <string name="btn_mainact_showsanjyra">View "Sanjira"</string>
 
     <string name="btn_home">Home</string>
-    <string name="text_main_adddataact">Введите свои личные данные</string>
-    <string name="text_name_adddataact">Ф.И.О.:</string>
+    <string name="text_main_adddataact">Enter your personal details</string>
+    <string name="text_name_adddataact">Full name:</string>
     <string name="text_familie_adddataact">E-Mail:</string>
-    <string name="text_burthday_adddataact">День рождения:</string>
-    <string name="text_proishoj_adddataact">Происхождение:</string>
-    <string name="text_mestojitel_adddataact">Место проживания:</string>
-    <string name="text_rod_adddataact">Род:</string>
-    <string name="btn_save_adddataact">Сохранить</string>
-    <string name="btn_select_showsanjyra">Ввод</string>
-    <string name="text_select_showsanjyra">Выберите из списка ниже и нажмите кнопку</string>
+    <string name="text_burthday_adddataact">Birthday:</string>
+    <string name="text_proishoj_adddataact">Origin:</string>
+    <string name="text_mestojitel_adddataact">Place of residence:</string>
+    <string name="text_name_dad">Dads full name:</string>
+    <string name="text_name_mom">Moms full name:</string>
+    <string name="text_rod_adddataact">Family</string>
+    <string name="btn_save_adddataact">Save</string>
+    <string name="btn_select_showsanjyra">Enter</string>
+    <string name="text_select_showsanjyra">Select from the list below and click</string>
     <string name="textOnKanat">Выбрать из он канат</string>
     <string name="textSolKanat">Выбрать из сол канат</string>
     <string name="textIchkilik">Выбрать из ичкилик</string>
-    <string name="selectacttosanjyra">Выберите из списка ниже</string>
-    <string name="text_deletenote"><![CDATA[Введите <ID> записи которую хотите удалить]]></string>
-    <string name="textDescription1">Kyrgyzpedigree - отличный способ найти своих родственников по родословной.</string>
-    <string name="textDescription2">Kyrgyzpedigree - это наиболее простой способ, посмотреть и понаблюдать, каких родственников имеете по родословной и где они проживают.</string>
-    <string name="textDecription7"><![CDATA[* Просмотреть древо <Санжыра> - родословная кыргызского народа.]]></string>
+    <string name="selectacttosanjyra">Select from the list below</string>
+    <string name="text_deletenote"><![CDATA[Enter <ID> records you want to delete]]></string>
+    <string name="textDescription1">Kyrgyz family tree is a great way to find your relatives by family tree.</string>
+    <string name="textDescription2">Kyrgyz family tree is the easiest way to see and observe which relatives you have by their pedigree and where they live.</string>
+    <string name="textDecription7"><![CDATA[* View the tree <Sanjira> - the pedigree of the Kyrgyz people.]]></string>
+
+
+    <string name="google_maps_key">AIzaSyC_ihOoRPsis8kjnXtLz8hH0mFEeuaYeSc</string>
 
     <string-array name="sanjyraAllList">
         <item>Саруу</item>

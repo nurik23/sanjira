@@ -1,0 +1,4 @@
+kg/sanjyra/model/Person.class
+kg/sanjyra/service/PersonService.class
+kg/sanjyra/controller/PersonController.class
+kg/sanjyra/repository/PersonRepository.class

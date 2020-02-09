@@ -1,19 +1,55 @@
 package com.example.kyrgyzpedigree;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.StrictMode;
+
+import org.springframework.http.ContentCodingType;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "persons_db";
+    private RestTemplate restTemplate;
+    private String serverUrl = "http://192.168.1.2:8083";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+    }
+
+
+    private RestTemplate getRestTemplate() {
+        if (restTemplate == null) {
+            restTemplate = new RestTemplate();
+            restTemplate.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+        }
+        return restTemplate;
+    }
+
+    private HttpHeaders getHeaders() {
+        HttpHeaders requestHeaders = new HttpHeaders();
+        requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+        requestHeaders.setContentEncoding(ContentCodingType.ALL);
+        return requestHeaders;
     }
 
     @Override
@@ -28,75 +64,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void insertPerson(Person person) {
+        getRestTemplate().postForEntity(serverUrl + "/person/",
+                new HttpEntity<>(person, getHeaders()),
+                ResponseEntity.class);
 
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(Person.COLUMN_NAME, person.getName());
-        values.put(Person.COLUMN_EMAIL, person.getEmail());
-        values.put(Person.COLUMN_MESTOJITELSTVA, person.getMestojitelstva());
-        values.put(Person.COLUMN_GODROJDENIYA, person.getGodrojdeniya());
-        values.put(Person.COLUMN_ROD, person.getRod());
-        values.put(Person.COLUMN_PODROD, person.getPodrod());
-        db.insert(Person.TABLE_NAME, null, values);
-        db.close();
     }
 
-    public ArrayList<Person> getAllPersons() {
-        ArrayList<Person> persons = new ArrayList<>();
-
-        String selectQuery = "SELECT  * FROM " + Person.TABLE_NAME;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Person person = new Person();
-                person.setId(cursor.getInt(cursor.getColumnIndex(Person.COLUMN_ID)));
-                person.setName(cursor.getString(cursor.getColumnIndex(Person.COLUMN_NAME)));
-                person.setEmail(cursor.getString(cursor.getColumnIndex(Person.COLUMN_EMAIL)));
-                person.setMestojitelstva(cursor.getString(cursor.getColumnIndex(Person.COLUMN_MESTOJITELSTVA)));
-                person.setGodrojdeniya(cursor.getString(cursor.getColumnIndex(Person.COLUMN_GODROJDENIYA)));
-                person.setRod(cursor.getString(cursor.getColumnIndex(person.COLUMN_ROD)));
-                person.setPodrod(cursor.getString(cursor.getColumnIndex(person.COLUMN_PODROD)));
-                persons.add(person);
-            } while (cursor.moveToNext());
-        }
-        db.close();
-        return persons;
+    public List<Person> getAllPersons() {
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/person/all", List.class);
+        return (List<Person>) allPersonsResponseEntity.getBody();
     }
 
-    public ArrayList<Person> getAllPersonsSanjyra(String sanjyra) {
-        ArrayList<Person> persons = new ArrayList<>();
+    public List<Person> getAllPersonsSanjyra(String podrod) {
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/person/byPodrod/" + podrod, List.class);
+        return (List<Person>) allPersonsResponseEntity.getBody().stream().map(map -> new Person((Map<String, Object>) map)
+        ).collect(Collectors.toList());
 
-        String selectQuery = "SELECT  * FROM " + Person.TABLE_NAME + " where "+Person.COLUMN_ROD+"='"+sanjyra+"'";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Person person = new Person();
-                person.setId(cursor.getInt(cursor.getColumnIndex(Person.COLUMN_ID)));
-                person.setName(cursor.getString(cursor.getColumnIndex(Person.COLUMN_NAME)));
-                person.setEmail(cursor.getString(cursor.getColumnIndex(Person.COLUMN_EMAIL)));
-                person.setMestojitelstva(cursor.getString(cursor.getColumnIndex(Person.COLUMN_MESTOJITELSTVA)));
-                person.setGodrojdeniya(cursor.getString(cursor.getColumnIndex(Person.COLUMN_GODROJDENIYA)));
-                person.setRod(cursor.getString(cursor.getColumnIndex(Person.COLUMN_ROD)));
-                person.setPodrod(cursor.getString(cursor.getColumnIndex(Person.COLUMN_PODROD)));
-                persons.add(person);
-            } while (cursor.moveToNext());
-        }
-        db.close();
-        return persons;
     }
 
-    public void deletePerson(Person person) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(Person.TABLE_NAME, Person.COLUMN_ID + " = ?",
-                new String[]{String.valueOf(person.getId())});
-        db.close();
+    public void deletePerson(int id) {
+        getRestTemplate().delete(serverUrl + "/person/" + id);
     }
 
 }

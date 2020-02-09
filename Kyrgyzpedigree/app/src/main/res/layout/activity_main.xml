@@ -11,32 +11,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo_sanjyra"/>
+            android:layout_height="424dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo_sanjyra" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
         <Button
+            android:id="@+id/btnShowSanjyra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_menu1"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="30dp"
             android:background="@color/btnColor"
-            android:id="@+id/btnAddData"/>
+            android:text="@string/enter_menu2" />
+
         <Button
+            android:id="@+id/btnAddData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_menu2"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="50dp"
+            android:layout_marginRight="30dp"
             android:background="@color/btnColor"
-            android:id="@+id/btnShowSanjyra"/>
+            android:text="@string/enter_menu1" />
     </LinearLayout>
 </LinearLayout>

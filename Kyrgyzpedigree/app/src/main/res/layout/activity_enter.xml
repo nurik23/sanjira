@@ -10,43 +10,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo_sanjyra"/>
+            android:layout_height="388dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/logo_sanjyra" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btnAdmin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_mainact_adddata"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:background="@color/btnColor"
-            android:id="@+id/btnAdmin"/>
+            android:text="@string/btn_mainact_adddata" />
+
         <Button
+            android:id="@+id/btnGuest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_mainact_showsanjyra"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:background="@color/btnColor"
-            android:id="@+id/btnGuest"/>
+            android:text="@string/btn_mainact_showsanjyra" />
+
         <Button
+            android:id="@+id/btnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_home"
-            android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
             android:background="@color/btnColor"
-            android:id="@+id/btnHome"/>
+            android:text="@string/btn_home" />
     </LinearLayout>
 
 </LinearLayout>

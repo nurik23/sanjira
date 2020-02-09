@@ -14,14 +14,15 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="О приложении"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:textColor="@color/textColor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="About app"
+            android:textAlignment="center"
+            android:textColor="@color/textColor"
+            android:textSize="20dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,24 +39,24 @@
             android:text="Kyrgyzpedigree позволяет:"
             android:layout_marginTop="10dp"
             />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="* Вводить свои личные данные в общую базу данных."
             android:layout_marginTop="10dp"
-            />
+            android:text="* Enter your personal data in a common database." />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="* Так же удалять данные, если неправильно ввели."
             android:layout_marginTop="10dp"
-            />
+            android:text="* Also delete data if entered incorrectly." />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="* Просматривать данные других пользователей, которые также ввели свои данные."
             android:layout_marginTop="10dp"
-            />
+            android:text="* View data of other users who also entered their data." />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

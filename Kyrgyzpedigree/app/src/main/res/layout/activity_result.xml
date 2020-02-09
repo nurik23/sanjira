@@ -26,11 +26,9 @@
         android:textColor="@color/textColor1"/>
 
     <ListView
+        android:id="@+id/listResult"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listResult"></ListView>
-
-
+        android:layout_height="match_parent"></ListView>
 
 
 </LinearLayout>
