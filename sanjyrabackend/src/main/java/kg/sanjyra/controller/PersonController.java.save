@@ -79,17 +79,17 @@ public class PersonController {
                 });
 
         receivers.forEach(receiver -> {
-            String theme = "Санжыра";
+            String theme = "Санжыр�R TABLE etape_prospection CONVERT TO CHARACTER SET utf8;�";
             String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName()  + "   " +  registeredPerson.getGodrojdeniya()  + " года рождения !  ";
             try {
-                MimeMessage message = new MimeMessage(session);
+                Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(username));
                 message.setRecipients(
                         Message.RecipientType.TO,
                         InternetAddress.parse(receiver.getEmail())
                 );
-                message.setSubject(theme, "utf-8");
-                message.setText(description, "utf-8");
+                message.setSubject(theme);
+                message.setText(description);
                 Transport.send(message);
                 System.out.println("Sent to: " + receiver.getEmail());
 
@@ -103,4 +103,3 @@ public class PersonController {
 
     }
 }
-
