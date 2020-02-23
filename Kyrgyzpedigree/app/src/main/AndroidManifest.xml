@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kyrgyzpedigree">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -10,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_Maps"/>
+        <activity android:name=".MainActivity_map"/>
+        <activity android:name=".MapActivity"/>
         <activity android:name=".LoginAdmin"></activity>
         <activity android:name=".EnterActivity" />
         <activity android:name=".infoActivity" />
@@ -35,8 +39,9 @@
     	android:value="@integer/google_play_services_version" />
 	
 	<meta-data
-  	android:name="com.google.android.geo.API_KEY"
-  	android:value="@string/google_maps_key" />
+
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCzeCigMhYFV9wx6kQuHmuuZhmm7aD487Y" />
     </application>
 
 </manifest>

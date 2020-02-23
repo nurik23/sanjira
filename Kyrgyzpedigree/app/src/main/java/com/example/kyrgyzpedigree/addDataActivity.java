@@ -41,6 +41,25 @@ public class addDataActivity extends AppCompatActivity {
         editTextNamemom = findViewById(R.id.editMomName);
         text = findViewById(R.id.textForResult);
 
+        if (PersonStaticFields.name!=null){
+            editTextName.setText(PersonStaticFields.name);
+        }
+        if (PersonStaticFields.email!=null){
+            editTextEmail.setText(PersonStaticFields.email);
+        }
+        if (PersonStaticFields.godrojdeniya!=null){
+            editTextGodrojdeniya.setText(PersonStaticFields.godrojdeniya);
+        }
+        if (PersonStaticFields.mestojitelstva!=null){
+            editTextMestojitelstva.setText(PersonStaticFields.mestojitelstva);
+        }
+        if (PersonStaticFields.namedad!=null){
+            editTextNamedad.setText(PersonStaticFields.namedad);
+        }
+        if (PersonStaticFields.namemom!=null){
+            editTextNamemom.setText(PersonStaticFields.namemom);
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnSave = findViewById(R.id.buttonSave);
@@ -276,10 +295,19 @@ public class addDataActivity extends AppCompatActivity {
         btnMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(addDataActivity.this, Activity_Maps.class);
+                PersonStaticFields.name = editTextName.getText().toString();
+                PersonStaticFields.email = editTextEmail.getText().toString();
+                PersonStaticFields.mestojitelstva = editTextMestojitelstva.getText().toString();
+                PersonStaticFields.godrojdeniya = editTextGodrojdeniya.getText().toString();
+                PersonStaticFields.namedad = editTextNamedad.getText().toString();
+                PersonStaticFields.namemom = editTextNamemom.getText().toString();
+                PersonStaticFields.rod = spinnerListRod.getSelectedItem().toString();
+                PersonStaticFields.podrod = spinnerListPodrod.getSelectedItem().toString();
+                intent = new Intent(addDataActivity.this, /*Activity_Maps*/MapActivity.class);
                 startActivity(intent);
             }
         });
+
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -327,9 +355,12 @@ public class addDataActivity extends AppCompatActivity {
                                         person.setPodrod(selectedPodrod);
                                         db.insertPerson(person);
                                         finish();
+                                        PersonStaticFields.resetFields();
                                         Toast toast2 = Toast.makeText(getApplicationContext(),
                                                 "Successfully added to the database.", Toast.LENGTH_SHORT);
                                         toast2.show();
+                                        intent = new Intent(addDataActivity.this, EnterActivity.class);
+                                        startActivity(intent);
                                     } else toastNamemom.show();
                                 } else toastNamedad.show();
                             } else toastMestojitelstva.show();

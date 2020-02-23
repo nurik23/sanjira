@@ -82,14 +82,14 @@ public class PersonController {
             String theme = "Санжыра";
             String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName()  + "   " +  registeredPerson.getGodrojdeniya()  + " года рождения !  ";
             try {
-                Message message = new MimeMessage(session);
+                MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(username));
                 message.setRecipients(
                         Message.RecipientType.TO,
                         InternetAddress.parse(receiver.getEmail())
                 );
-                message.setSubject(theme);
-                message.setText(description);
+                message.setSubject(theme, "utf-8");
+                message.setText(description, "utf-8");
                 Transport.send(message);
                 System.out.println("Sent to: " + receiver.getEmail());
 
@@ -103,3 +103,4 @@ public class PersonController {
 
     }
 }
+

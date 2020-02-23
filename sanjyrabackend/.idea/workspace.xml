@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26ae9c40-5b92-4748-85a2-e9467a4939ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Kyrgyzpedigree/app/src/main/java/com/example/kyrgyzpedigree/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Kyrgyzpedigree/app/src/main/java/com/example/kyrgyzpedigree/DatabaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kg/sanjyra/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/kg/sanjyra/controller/PersonController$1.class" beforeDir="false" />
@@ -18,6 +18,15 @@
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar.original" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/sanjyra-backend-1.0.jar.original" afterDir="false" />
+>>>>>>> 2f387fe21c1745fe05f678ec22625158fb37924c
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,12 +101,17 @@
       <workItem from="1581108433820" duration="8806000" />
       <workItem from="1581238121010" duration="218000" />
       <workItem from="1581239261771" duration="1755000" />
+<<<<<<< HEAD
       <workItem from="1581254558346" duration="1751000" />
       <workItem from="1581260923322" duration="1406000" />
       <workItem from="1581839516550" duration="1049000" />
       <workItem from="1581840876920" duration="839000" />
       <workItem from="1581844017280" duration="1364000" />
       <workItem from="1581846284522" duration="22000" />
+=======
+      <workItem from="1581254558346" duration="1278000" />
+      <workItem from="1581846329392" duration="287000" />
+>>>>>>> 2f387fe21c1745fe05f678ec22625158fb37924c
     </task>
     <servers />
   </component>
