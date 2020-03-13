@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class EnterActivity extends AppCompatActivity {
 
-    Button btnAdmin, btnGuest, btnHome;
+    Button btnAdmin, btnGuest,btnTree, btnHome;
     Intent intent;
     Intent intentToMenu1, intentToMenu2;
 
@@ -24,6 +24,7 @@ public class EnterActivity extends AppCompatActivity {
 
         btnAdmin = findViewById(R.id.btnAdmin);
         btnGuest = findViewById(R.id.btnGuest);
+        btnTree = findViewById(R.id.btnTree);
         btnHome = findViewById(R.id.btnHome);
 
         btnHome.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,13 @@ public class EnterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 intent = new Intent(EnterActivity.this, showSanjyra.class);
+                startActivity(intent);
+            }
+        });
+        btnTree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(EnterActivity.this, ShowSanjyraTree.class);
                 startActivity(intent);
             }
         });

@@ -54,8 +54,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
-import com.example.kyrgyzpedigree.models.PlaceInfo;
 //import android.support.v7.app.AppCompatActivity;
 
 /**
@@ -75,6 +73,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Toast.makeText(this, "Map is Ready", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onMapReady: map is ready");
         mMap = googleMap;
+
 
         if (mLocationPermissionsGranted) {
             getDeviceLocation();

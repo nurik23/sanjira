@@ -1,64 +1,68 @@
 package kg.sanjyra.controller;
 
 import kg.sanjyra.model.Person;
-import kg.sanjyra.service.PersonService;
+import kg.sanjyra.model.Podrod;
+import kg.sanjyra.repository.PersonRepository;
+import kg.sanjyra.repository.PodrodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.HttpEntity;
-
-import java.util.List;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.List;
 import java.util.Properties;
 
-@Controller
+@RestController
 @RequestMapping("/person")
 public class PersonController {
-    private PersonService personService;
-
+    private PersonRepository personRepository;
+    private PodrodRepository podrodRepository;
     @Autowired
-    public PersonController(PersonService personService) {
-        this.personService = personService;
+    public PersonController(PersonRepository personRepository, PodrodRepository podrodRepository) {
+        this.personRepository = personRepository;
+        this.podrodRepository = podrodRepository;
     }
 
     @PostMapping
     public ResponseEntity savePerson(HttpEntity<Person> httpEntity) {
         Person person = httpEntity.getBody();
-        sendEmail(person, personService.getPersonListByPodrod(person.getPodrod()));
-        personService.savePerson(person);
+        String podrodName = httpEntity.getHeaders().get("podrodName").get(0);
+        Podrod podrodByName = podrodRepository.findPodrodByName(podrodName);
+        person.setPodrod(podrodByName);
+        personRepository.save(person);
+        sendEmail(person, personRepository.findAllByPodrodName(podrodName));
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity updatePerson(@RequestParam Person person) {
-        personService.updatePerson(person);
+        personRepository.save(person);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity deletePersonById(@PathVariable int id) {
-        personService.deletePersonById(id);
+        personRepository.deleteById(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public Person getPersonById(@PathVariable int id) {
-        return personService.getPersonById(id);
+        return personRepository.findById(id).orElse(new Person());
     }
 
     @GetMapping("/byPodrod/{podrod}")
     public ResponseEntity<List> getPersonListByPodrod(@PathVariable String podrod) {
-        return new ResponseEntity<>(personService.getPersonListByPodrod(podrod), HttpStatus.OK);
+        return new ResponseEntity<>(personRepository.findAllByPodrodName(podrod), HttpStatus.OK);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List> getPersonList() {
-        return new ResponseEntity<>(personService.getPersonList(), HttpStatus.OK);
+        return new ResponseEntity<>(personRepository.findAll(), HttpStatus.OK);
     }
 
     private void sendEmail(Person registeredPerson, List<Person> receivers) {

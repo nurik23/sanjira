@@ -1,8 +1,6 @@
 package kg.sanjyra.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Person {
@@ -15,24 +13,24 @@ public class Person {
     private String godrojdeniya;
     private String namedad;
     private String namemom;
-    private String rod;
-    private String podrod;
+    @ManyToOne
+    @JoinColumn(name = "podrod_id")
+    private Podrod podrod;
 
     public Person() {
     }
 
-    public Person(String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, String rod, String podrod) {
+    public Person(String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, Podrod podrod) {
         this.name = name;
         this.email = email;
         this.mestojitelstva = mestojitelstva;
         this.godrojdeniya = godrojdeniya;
         this.namedad = namedad;
         this.namemom = namemom;
-        this.rod = rod;
         this.podrod = podrod;
     }
 
-    public Person(int id, String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, String rod, String podrod) {
+    public Person(int id, String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, Podrod podrod) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -40,7 +38,6 @@ public class Person {
         this.godrojdeniya = godrojdeniya;
         this.namedad = namedad;
         this.namemom = namemom;
-        this.rod = rod;
         this.podrod = podrod;
     }
 
@@ -101,19 +98,11 @@ public class Person {
         this.namemom = namemom;
     }
 
-    public String getRod() {
-        return rod;
-    }
-
-    public void setRod(String rod) {
-        this.rod = rod;
-    }
-
-    public String getPodrod() {
+    public Podrod getPodrod() {
         return podrod;
     }
 
-    public void setPodrod(String podrod) {
+    public void setPodrod(Podrod podrod) {
         this.podrod = podrod;
     }
 
@@ -127,7 +116,6 @@ public class Person {
                 ", godrojdeniya='" + godrojdeniya + '\'' +
                 ", namedad='" + namedad + '\'' +
                 ", namemom='" + namemom + '\'' +
-                ", rod='" + rod + '\'' +
                 ", podrod='" + podrod + '\'' +
                 '}';
     }
