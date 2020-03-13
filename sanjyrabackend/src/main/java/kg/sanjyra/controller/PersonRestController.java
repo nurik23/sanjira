@@ -18,11 +18,11 @@ import java.util.Properties;
 
 @RestController
 @RequestMapping("/person")
-public class PersonController {
+public class PersonRestController {
     private PersonRepository personRepository;
     private PodrodRepository podrodRepository;
     @Autowired
-    public PersonController(PersonRepository personRepository, PodrodRepository podrodRepository) {
+    public PersonRestController(PersonRepository personRepository, PodrodRepository podrodRepository) {
         this.personRepository = personRepository;
         this.podrodRepository = podrodRepository;
     }
@@ -31,7 +31,7 @@ public class PersonController {
     public ResponseEntity savePerson(HttpEntity<Person> httpEntity) {
         Person person = httpEntity.getBody();
         String podrodName = httpEntity.getHeaders().get("podrodName").get(0);
-        Podrod podrodByName = podrodRepository.findPodrodByName(podrodName);
+        Podrod podrodByName = podrodRepository.findPodrodByNameLike(podrodName);
         person.setPodrod(podrodByName);
         personRepository.save(person);
         sendEmail(person, personRepository.findAllByPodrodName(podrodName));
