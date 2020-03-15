@@ -1,6 +1,5 @@
 package com.example.kyrgyzpedigree.bean;
 
-
 import com.example.kyrgyzpedigree.R;
 import com.example.kyrgyzpedigree.recyclertreeview_lib.LayoutItemType;
 

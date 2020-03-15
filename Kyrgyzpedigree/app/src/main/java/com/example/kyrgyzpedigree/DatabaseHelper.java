@@ -1,26 +1,21 @@
 package com.example.kyrgyzpedigree;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.StrictMode;
 
 import com.example.kyrgyzpedigree.models.Podrod;
 import com.example.kyrgyzpedigree.models.Rod;
+
 import org.springframework.http.ContentCodingType;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -30,10 +25,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "persons_db";
     private RestTemplate restTemplate;
-    private String serverUrl = "http://18.219.37.92:8083";
+//    private String serverUrl = "http://18.219.37.92:8083";
+    private String serverUrl = "http://192.168.43.182:8083";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
     }
@@ -42,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private RestTemplate getRestTemplate() {
         if (restTemplate == null) {
             restTemplate = new RestTemplate();
-            restTemplate.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
+            restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         }
         return restTemplate;
     }
@@ -84,13 +81,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public List<Rod> getRodList(){
+    public List<Rod> getRodList() {
         ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/rod/all", List.class);
+        System.out.println("rinat");
         return (List<Rod>) allPersonsResponseEntity.getBody();
     }
 
     public List<Podrod> getPodrodListByRodName(String rodName) {
-        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/podrod/byRodName/"+rodName, List.class);
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/podrod/byRodName/" + rodName, List.class);
         return (List<Podrod>) allPersonsResponseEntity.getBody();
     }
 

@@ -1,5 +1,8 @@
 package kg.sanjyra.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,9 +12,11 @@ public class Podrod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "rod_id")
     private Rod rod;
+    @JsonManagedReference
     @OneToMany(mappedBy = "podrod", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Person> personList;
 
@@ -70,5 +75,15 @@ public class Podrod {
 
     public void setPersonList(List<Person> personList) {
         this.personList = personList;
+    }
+
+    @Override
+    public String toString() {
+        return "Podrod{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", rod=" + rod.getName() +
+                ", personListSize=" + personList.size() +
+                '}';
     }
 }

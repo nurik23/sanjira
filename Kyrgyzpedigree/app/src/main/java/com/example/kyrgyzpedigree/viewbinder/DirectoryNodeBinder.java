@@ -10,13 +10,14 @@ import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeNode;
 import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeViewBinder;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * Created by tlh on 2016/10/1 :)
  */
 
 public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.ViewHolder> {
     @Override
-    public RecyclerView.ViewHolder provideViewHolder(View itemView) {
+    public ViewHolder provideViewHolder(View itemView) {
         return new ViewHolder(itemView);
     }
 
@@ -57,3 +58,4 @@ public class DirectoryNodeBinder extends TreeViewBinder<DirectoryNodeBinder.View
         }
     }
 }
+

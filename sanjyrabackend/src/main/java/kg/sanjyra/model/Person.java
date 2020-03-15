@@ -1,5 +1,7 @@
 package kg.sanjyra.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Person {
     private String godrojdeniya;
     private String namedad;
     private String namemom;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "podrod_id")
     private Podrod podrod;
@@ -104,19 +107,5 @@ public class Person {
 
     public void setPodrod(Podrod podrod) {
         this.podrod = podrod;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", mestojitelstva='" + mestojitelstva + '\'' +
-                ", godrojdeniya='" + godrojdeniya + '\'' +
-                ", namedad='" + namedad + '\'' +
-                ", namemom='" + namemom + '\'' +
-                ", podrod='" + podrod + '\'' +
-                '}';
     }
 }

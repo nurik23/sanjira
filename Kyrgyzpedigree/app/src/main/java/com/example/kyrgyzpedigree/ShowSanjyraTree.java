@@ -6,7 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.kyrgyzpedigree.bean.Dir;
+import com.example.kyrgyzpedigree.bean.File;
 import com.example.kyrgyzpedigree.models.Rod;
 import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeNode;
 import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeViewAdapter;
@@ -17,11 +22,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class ShowSanjyraTree extends AppCompatActivity {
+
 
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
     private RecyclerView rv;
@@ -32,7 +35,6 @@ public class ShowSanjyraTree extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_sanjyra_tree);
-
         initView();
         initData();
     }
@@ -74,7 +76,7 @@ public class ShowSanjyraTree extends AppCompatActivity {
     }
 
     private void initView() {
-        rv = findViewById(R.id.rv);
+        rv = (RecyclerView) findViewById(R.id.rv);
     }
 
 

@@ -1,5 +1,7 @@
 package kg.sanjyra.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class Rod {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @JsonManagedReference
     @OneToMany(mappedBy = "rod", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Podrod> podrodList;
 
@@ -52,5 +55,14 @@ public class Rod {
 
     public void setPodrodList(List<Podrod> podrodList) {
         this.podrodList = podrodList;
+    }
+
+    @Override
+    public String toString() {
+        return "Rod{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", podrodListSize=" + podrodList.size() +
+                '}';
     }
 }
