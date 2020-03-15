@@ -2,100 +2,98 @@
 package com.example.kyrgyzpedigree;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ImageView;
 
+import com.example.kyrgyzpedigree.bean.Dir;
+import com.example.kyrgyzpedigree.models.Rod;
+import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeNode;
+import com.example.kyrgyzpedigree.recyclertreeview_lib.TreeViewAdapter;
+import com.example.kyrgyzpedigree.viewbinder.DirectoryNodeBinder;
+import com.example.kyrgyzpedigree.viewbinder.FileNodeBinder;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ShowSanjyraTree extends AppCompatActivity {
 
-
-    Button selectButton;
-    Spinner spinnerSanjyra;
-    String lastSelectedRod = "nothing";
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    private RecyclerView rv;
+    private TreeViewAdapter adapter;
+    private List<Rod> rodList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_sanjyra_tree);
 
+        initView();
+        initData();
+    }
 
-        final String div1[] = {"Ачакей", "Чокон", "Ажыбек", "Тен-Терт"};
-        final String div2[] = {"Коткар", "Кушчу2"};
-        final String div3[] = {"Карабагыш1", "Карабагыш2", "Карабагыш3"};
-        final String div4[] = {"1", "2", "3"};
-        final String div5[] = {"1", "2", "3"};
-        final String div6[] = {"1", "2", "3"};
-        final String div7[] = {"1", "2", "3"};
-        final String div8[] = {"1", "2", "3"};
-        final String div9[] = {"1", "2", "3"};
-        final String div10[] = {"1", "2", "3"};
-        final String div11[] = {"1", "2", "3"};
-        final String div12[] = {"1", "2", "3"};
-        final String div13[] = {"1", "2", "3"};
-        final String div14[] = {"1", "2", "3"};
-        final String div15[] = {"1", "2", "3"};
-        final String div16[] = {"1", "2", "3"};
-        final String div17[] = {"1", "2", "3"};
-        final String div18[] = {"1", "2", "3"};
-        final String div19[] = {"1", "2", "3"};
-        final String div20[] = {"1", "2", "3"};
-        final String div21[] = {"1", "2", "3"};
-        final String div22[] = {"1", "2", "3"};
-        final String div23[] = {"1", "2", "3"};
-        final String div24[] = {"1", "2", "3"};
-        final String div25[] = {"1", "2", "3"};
-        final String div26[] = {"1", "2", "3"};
-        final String div27[] = {"1", "2", "3"};
-        final String div28[] = {"1", "2", "3"};
-        final String div29[] = {"1", "2", "3"};
-        final String div30[] = {"1", "2", "3"};
-        final String div31[] = {"1", "2", "3"};
-        List<String[]> prodrodList = Arrays.asList(div1, div2, div3, div4, div5, div6, div7,
-                div8, div9, div10, div11, div12, div13, div14, div15, div16, div17, div18,
-                div19, div20, div21, div22, div23, div24, div25, div26, div27, div28, div29,
-                div30, div31);
-        List<String> rodList = Arrays.asList("Саруу", "Кушчу", "Карабагыш", "Мундуз", "Чонбагыш", "Кытай", "Жетиген", "Басыз"
-                , "Карачоро", "Саяк", "Монолдор", "Сарыбагыш", "Солто"
-                , "Бугу", "Азык", "Монгуш", "Черик", "Багыш", "Адыгине", "Жедигер", "Ават", "Бостон", "Кыдыршаа", "Доолос"
-                , "Найман", "Канды", "Кесек", "Жоокесек", "Каратейит"
-                , "Нойгут", "Кыпчак");
-        spinnerSanjyra = findViewById(R.id.spinnerListRod);
-        selectButton = findViewById(R.id.btnSelect);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, rodList);
-        spinnerSanjyra.setAdapter(adapter);
+    private void initData() {
+        rodList = databaseHelper.getRodList();
+        List<TreeNode> nodes = new ArrayList<>();
+        for (Rod rod : rodList) {
+            TreeNode<Dir> rodNode = new TreeNode<>(new Dir(rod.getName()));
+            nodes.add(rodNode);
+        }
 
-        selectButton.setOnClickListener(v -> {
-            String selectedValueOfSanjyra = spinnerSanjyra.getSelectedItem().toString();
-            if (lastSelectedRod.equals(selectedValueOfSanjyra)) {
-                return;
-            }
-            lastSelectedRod = selectedValueOfSanjyra;
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    "Выбрали " + selectedValueOfSanjyra + "", Toast.LENGTH_SHORT);
-            toast.show();
-            int selectedRodIndex = 0;
-            for (int i = 0; i < rodList.size(); i++) {
-                if (rodList.get(i).equals(selectedValueOfSanjyra)) {
-                    selectedRodIndex = i;
-                    i = rodList.size();
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new TreeViewAdapter(nodes, Arrays.asList(new FileNodeBinder(), new DirectoryNodeBinder()));
+        // whether collapse child nodes when their parent node was close.
+//        adapter.ifCollapseChildWhileCollapseParent(true);
+        adapter.setOnTreeNodeListener(new TreeViewAdapter.OnTreeNodeListener() {
+            @Override
+            public boolean onClick(TreeNode node, RecyclerView.ViewHolder holder) {
+                if (!node.isLeaf()) {
+                    //Update and toggle the node.
+                    onToggle(!node.isExpand(), holder);
+//                    if (!node.isExpand())
+//                        adapter.collapseBrotherNode(node);
                 }
+                return false;
             }
-            String[] podrodArray = prodrodList.get(selectedRodIndex);
-            for (String podrod : podrodArray) {
-                List<Person> allPersonsInPodrod = databaseHelper.getAllPersonsSanjyra(podrod);
-                System.out.println("podrod : "+podrod);
-                for (Person person : allPersonsInPodrod) {
-                    System.out.println("person name :"+ person.getName());
-                }
 
+            @Override
+            public void onToggle(boolean isExpand, RecyclerView.ViewHolder holder) {
+                DirectoryNodeBinder.ViewHolder dirViewHolder = (DirectoryNodeBinder.ViewHolder) holder;
+                final ImageView ivArrow = dirViewHolder.getIvArrow();
+                int rotateDegree = isExpand ? 90 : -90;
+                ivArrow.animate().rotationBy(rotateDegree)
+                        .start();
             }
         });
+        rv.setAdapter(adapter);
+    }
+
+    private void initView() {
+        rv = findViewById(R.id.rv);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.id_action_close_all:
+                adapter.collapseAll();
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

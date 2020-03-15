@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.StrictMode;
 
+import com.example.kyrgyzpedigree.models.Podrod;
+import com.example.kyrgyzpedigree.models.Rod;
 import org.springframework.http.ContentCodingType;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -80,6 +82,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (List<Person>) allPersonsResponseEntity.getBody().stream().map(map -> new Person((Map<String, Object>) map)
         ).collect(Collectors.toList());
 
+    }
+
+    public List<Rod> getRodList(){
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/rod/all", List.class);
+        return (List<Rod>) allPersonsResponseEntity.getBody();
+    }
+
+    public List<Podrod> getPodrodListByRodName(String rodName) {
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/podrod/byRodName/"+rodName, List.class);
+        return (List<Podrod>) allPersonsResponseEntity.getBody();
     }
 
     public void deletePerson(int id) {

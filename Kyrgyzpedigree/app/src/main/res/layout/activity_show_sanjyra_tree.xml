@@ -1,62 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sanjyraColor"
-    android:orientation="vertical"
-    tools:context=".showSanjyra">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/text_select_showsanjyra"
-        android:textAlignment="center"
-        android:textColor="@color/textColor"
-        android:textSize="25dp"
-        tools:gravity="center" />
-
-
-    <TextView
-        android:layout_width="65dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="@string/text_rod_adddataact"
-        android:textColor="@color/textColor"
-        android:textSize="20dp" />
-
-    <Spinner
-        android:id="@+id/spinnerListRod"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginLeft="10dp"
-       android:layout_marginRight="10dp"
-        android:background="@color/btnColor"
-        android:textAlignment="center">
-
-    </Spinner>
-    <Button
-        android:id="@+id/btnSelect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/btnColor"
-        android:text="@string/btn_select_showsanjyra"
-        android:textColor="@color/textColor"
-        android:textSize="20dp" />
-
-    <ScrollView
-        android:id="@+id/scrollLayout"
-        android:layout_width="409dp"
-        android:layout_height="681dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="48dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ScrollView>
-</LinearLayout>
+    tools:context=".ShowSanjyraTree" />
