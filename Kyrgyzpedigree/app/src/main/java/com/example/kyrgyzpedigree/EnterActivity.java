@@ -1,7 +1,9 @@
 package com.example.kyrgyzpedigree;
 
 import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,9 +14,9 @@ import android.widget.Toast;
 
 public class EnterActivity extends AppCompatActivity {
 
-    Button btnAdmin, btnGuest, btnHome;
+    Button btnAdmin, btnTree, btnHome;
     Intent intent;
-    Intent intentToMenu1, intentToMenu2;
+    Intent intentToMenu2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class EnterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enter);
 
         btnAdmin = findViewById(R.id.btnAdmin);
-        btnGuest = findViewById(R.id.btnGuest);
+        btnTree = findViewById(R.id.btnTree);
         btnHome = findViewById(R.id.btnHome);
 
         btnHome.setOnClickListener(new View.OnClickListener() {
@@ -42,28 +44,25 @@ public class EnterActivity extends AppCompatActivity {
             }
         });
 
-        btnGuest.setOnClickListener(new View.OnClickListener() {
+        btnTree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(EnterActivity.this, showSanjyra.class);
+                intent = new Intent(EnterActivity.this, ShowSanjyraTree.class);
                 startActivity(intent);
             }
         });
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.help:
                 Toast toast2 = Toast.makeText(getApplicationContext(),
                         "About App", Toast.LENGTH_SHORT);

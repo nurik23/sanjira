@@ -13,14 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity_map"/>
         <activity android:name=".MapActivity"/>
         <activity android:name=".LoginAdmin"></activity>
         <activity android:name=".EnterActivity" />
         <activity android:name=".infoActivity" />
-        <activity android:name=".delete_note" />
-        <activity android:name=".resultActivity" />
-        <activity android:name=".showSanjyra" />
+        <activity android:name=".ShowSanjyraTree" />
         <activity android:name=".addDataActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -34,14 +31,14 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-	<meta-data
-    	android:name="com.google.android.gms.version"
-    	android:value="@integer/google_play_services_version" />
-	
-	<meta-data
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCRsXAjCygRUz6bunvLyPRorsWnxJkZ00Q"/>
 
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyCzeCigMhYFV9wx6kQuHmuuZhmm7aD487Y" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

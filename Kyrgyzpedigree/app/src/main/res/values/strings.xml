@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Kyrgyz pedigree</string>
+    <string name="app_name">"Kyrgyz Family Tree"</string>
     <string name="enter_menu1">Only for staff</string>
-    <string name="enter_menu2">Welcome to Kyrguz Sanjira!</string>
+    <string name="enter_menu2">Welcome to Kyrgyz Sanjira!</string>
     <string name="btn_mainact_adddata">Enter your details</string>
     <string name="btn_mainact_showsanjyra">View "Sanjira"</string>
 
@@ -9,7 +9,7 @@
     <string name="text_main_adddataact">Enter your personal details</string>
     <string name="text_name_adddataact">Full name:</string>
     <string name="text_familie_adddataact">E-Mail:</string>
-    <string name="text_burthday_adddataact">Birthday:</string>
+    <string name="text_burthday_adddataact">Year of birth:</string>
     <string name="text_proishoj_adddataact">Origin:</string>
     <string name="text_mestojitel_adddataact">Place of residence:</string>
     <string name="text_name_dad">Dads full name:</string>

@@ -5,12 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.kyrgyzpedigree.MainActivity_map">
+    tools:context="com.example.kyrgyzpedigree.ShowSanjyraTree">
 
     <Button
-        android:id="@+id/btnMap"
+        android:id="@+id/btnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Map"
+        android:text="Home"
         tools:layout_editor_absoluteX="5dp" />
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="681dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="48dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

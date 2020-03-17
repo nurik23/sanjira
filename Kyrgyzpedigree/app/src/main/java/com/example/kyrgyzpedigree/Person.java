@@ -5,18 +5,17 @@ import android.os.Parcelable;
 
 import java.util.Map;
 
-public class Person implements Parcelable{
+public class Person implements Parcelable {
 
     public static final String TABLE_NAME = "persons";
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_EMAIL = "email";
-    public static final String COLUMN_MESTOJITELSTVA= "mestojitelstva";
+    public static final String COLUMN_MESTOJITELSTVA = "mestojitelstva";
     public static final String COLUMN_GODROJDENIYA = "godrojdeniya";
     public static final String COLUMN_NAME_DAD = "namedad";
     public static final String COLUMN_NAME_MOM = "namemom";
-    public static final String COLUMN_ROD = "rod";
     public static final String COLUMN_PODROD = "podrod";
 
     public static final String CREATE_TABLE =
@@ -28,7 +27,6 @@ public class Person implements Parcelable{
                     + COLUMN_GODROJDENIYA + " TEXT,"
                     + COLUMN_NAME_DAD + " TEXT,"
                     + COLUMN_NAME_MOM + " TEXT,"
-                    + COLUMN_ROD + " TEXT,"
                     + COLUMN_PODROD + " TEXT"
                     + ")";
 
@@ -39,13 +37,12 @@ public class Person implements Parcelable{
     private String godrojdeniya;
     private String namedad;
     private String namemom;
-    private String rod;
     private String podrod;
 
     public Person() {
     }
 
-    public Person(int id, String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom ,String rod, String podrod) {
+    public Person(int id, String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, String podrod) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -53,32 +50,28 @@ public class Person implements Parcelable{
         this.godrojdeniya = godrojdeniya;
         this.namedad = namedad;
         this.namemom = namemom;
-        this.rod = rod;
         this.podrod = podrod;
     }
 
-    public Person(String name, String email, String mestojitelstva, String godrojdeniya,String namedad,String namemom, String rod, String podrod) {
+    public Person(String name, String email, String mestojitelstva, String godrojdeniya, String namedad, String namemom, String podrod) {
         this.name = name;
         this.email = email;
         this.mestojitelstva = mestojitelstva;
         this.godrojdeniya = godrojdeniya;
         this.namedad = namedad;
         this.namemom = namemom;
-        this.rod = rod;
         this.podrod = podrod;
     }
 
 
     public Person(Map<String, Object> map) {
-        this.id = (int)map.get("id");
+        this.id = (int) map.get("id");
         this.name = (String) map.get("name");
         this.email = (String) map.get("email");
         this.mestojitelstva = (String) map.get("mestojitelstva");
         this.godrojdeniya = (String) map.get("godrojdeniya");
         this.namedad = (String) map.get("namedad");
         this.namemom = (String) map.get("namemom");
-        this.rod = (String) map.get("rod");
-        this.podrod = (String) map.get("podrod");
     }
 
     protected Person(Parcel in) {
@@ -89,7 +82,6 @@ public class Person implements Parcelable{
         godrojdeniya = in.readString();
         namedad = in.readString();
         namemom = in.readString();
-        rod = in.readString();
         podrod = in.readString();
     }
 
@@ -119,7 +111,6 @@ public class Person implements Parcelable{
         dest.writeString(godrojdeniya);
         dest.writeString(namedad);
         dest.writeString(namemom);
-        dest.writeString(rod);
         dest.writeString(podrod);
     }
 
@@ -167,7 +158,9 @@ public class Person implements Parcelable{
         return namedad;
     }
 
-    public void setNamedad(String namedad) { this.namedad = namedad; }
+    public void setNamedad(String namedad) {
+        this.namedad = namedad;
+    }
 
     public String getNamemom() {
         return namemom;
@@ -175,14 +168,6 @@ public class Person implements Parcelable{
 
     public void setNamemom(String namemom) {
         this.namemom = namemom;
-    }
-
-    public String getRod() {
-        return rod;
-    }
-
-    public void setRod(String rod) {
-        this.rod = rod;
     }
 
     public String getPodrod() {
@@ -196,14 +181,13 @@ public class Person implements Parcelable{
     @Override
     public String toString() {
         return
-                        "ID=" + id +
-                        "\n"+"Full name: " + name +
-                        "\n"+"Email: " + email +
-                        "\n"+"Address: " + mestojitelstva +
-                        "\n"+"Year of birth: " + godrojdeniya +
-                        "\n"+"Dad's name: " + namedad +
-                        "\n"+"Mom's name: " + namemom +
-                        "\n"+"Family: " + rod +
-                        "\n"+"Tribe: " + podrod;
+                "ID : " + id +
+                        "\n" + "Full name: " + name +
+                        "\n" + "Email : " + email +
+                        "\n" + "Address : " + mestojitelstva +
+                        "\n" + "Year of birth : " + godrojdeniya +
+                        "\n" + "Dad's name : " + namedad +
+                        "\n" + "Mom's name : " + namemom +
+                        "\n" + "Podrod : " + podrod;
     }
 }
