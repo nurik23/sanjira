@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".infoActivity"
+    tools:context=".activities.InfoActivity"
     android:orientation="vertical"
     android:background="@color/sanjyraColor">
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="About app"
+            android:text="О Кыргызской семейной древе"
             android:textAlignment="center"
             android:textColor="@color/textColor"
             android:textSize="20dp" />

@@ -44,21 +44,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // Needed for the LiteListDemo
     implementation "androidx.recyclerview:recyclerview:1.1.0"
-    // https://mvnrepository.com/artifact/orngfrag.sprimework.android/spring-android-rest-template
+
     implementation group: 'org.springframework.android', name: 'spring-android-rest-template', version: '2.0.0.M3'
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.3'
-// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.10.3'
 
-//    implementation group: 'org.codehaus.jackson', name: 'jackson-core-asl', version: '1.9.13'
-//    implementation group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-analytics:17.0.0'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.google.android.gms:play-services-places:17.0.0'
-
-    implementation 'com.github.bmelnychuk:atv:1.2.9'
 }

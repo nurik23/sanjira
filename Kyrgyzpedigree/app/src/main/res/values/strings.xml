@@ -1,31 +1,31 @@
 <resources>
-    <string name="app_name">"Kyrgyz Family Tree"</string>
-    <string name="enter_menu1">Only for staff</string>
-    <string name="enter_menu2">Welcome to Kyrgyz Sanjira!</string>
-    <string name="btn_mainact_adddata">Enter your details</string>
-    <string name="btn_mainact_showsanjyra">View "Sanjira"</string>
+    <string name="app_name">"Кыргызское семейное древо"</string>
+    <string name="enter_menu1">Для администратора</string>
+    <string name="enter_menu2">Добро пожаловать в "САНЖЫРА"!</string>
+    <string name="btn_mainact_adddata">Введите ваши данные</string>
+    <string name="btn_mainact_showsanjyra">Просмотреть "Санжыра"</string>
 
-    <string name="btn_home">Home</string>
-    <string name="text_main_adddataact">Enter your personal details</string>
-    <string name="text_name_adddataact">Full name:</string>
-    <string name="text_familie_adddataact">E-Mail:</string>
-    <string name="text_burthday_adddataact">Year of birth:</string>
+    <string name="btn_home">Домой</string>
+    <string name="text_main_adddataact">Введите ваши персональные данные</string>
+    <string name="text_name_adddataact">Ф.И.О. :</string>
+    <string name="text_familie_adddataact">Электронная почта :</string>
+    <string name="text_burthday_adddataact">День рождения :</string>
     <string name="text_proishoj_adddataact">Origin:</string>
-    <string name="text_mestojitel_adddataact">Place of residence:</string>
-    <string name="text_name_dad">Dads full name:</string>
-    <string name="text_name_mom">Moms full name:</string>
-    <string name="text_rod_adddataact">Family</string>
-    <string name="btn_save_adddataact">Save</string>
-    <string name="btn_select_showsanjyra">Enter</string>
-    <string name="text_select_showsanjyra">Select from the list below and click</string>
+    <string name="text_mestojitel_adddataact">Место проживания :</string>
+    <string name="text_name_dad">Ф.И.О. отца:</string>
+    <string name="text_name_mom">Ф.И.О. матери:</string>
+    <string name="text_rod_adddataact">Род </string>
+    <string name="btn_save_adddataact">Сохранить</string>
+    <string name="btn_select_showsanjyra">Пройти </string>
+    <string name="text_select_showsanjyra">Выберите из списка ниже и нажмите</string>
     <string name="textOnKanat">Выбрать из он канат</string>
     <string name="textSolKanat">Выбрать из сол канат</string>
     <string name="textIchkilik">Выбрать из ичкилик</string>
-    <string name="selectacttosanjyra">Select from the list below</string>
-    <string name="text_deletenote"><![CDATA[Enter <ID> records you want to delete]]></string>
-    <string name="textDescription1">Kyrgyz family tree is a great way to find your relatives by family tree.</string>
-    <string name="textDescription2">Kyrgyz family tree is the easiest way to see and observe which relatives you have by their pedigree and where they live.</string>
-    <string name="textDecription7"><![CDATA[* View the tree <Sanjira> - the pedigree of the Kyrgyz people.]]></string>
+    <string name="selectacttosanjyra">Выберите из списка ниже</string>
+    <string name="text_deletenote"><![CDATA[Введите <ID> участника для удаления из базу данных]]></string>
+    <string name="textDescription1">Киргизское генеалогическое дерево - отличный способ найти своих родственников по генеалогическому древу.</string>
+    <string name="textDescription2">Киргизское генеалогическое дерево - это самый простой способ увидеть и увидеть, какие у вас родственники по родословной и где они живут.</string>
+    <string name="textDecription7"><![CDATA[* Вид на дерево <Санжыра> - родословная кыргызского народа.]]></string>
 
 
     <string name="google_maps_key">AIzaSyC_ihOoRPsis8kjnXtLz8hH0mFEeuaYeSc</string>

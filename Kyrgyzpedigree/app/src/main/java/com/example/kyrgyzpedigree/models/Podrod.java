@@ -1,7 +1,5 @@
 package com.example.kyrgyzpedigree.models;
 
-import com.example.kyrgyzpedigree.Person;
-
 import java.util.List;
 
 public class Podrod {

@@ -3,10 +3,6 @@ import android.net.Uri;
 
 import com.google.android.gms.maps.model.LatLng;
 
-/**
- * Created by User on 10/2/2017.
- */
-
 public class PlaceInfo {
 
     private String name;

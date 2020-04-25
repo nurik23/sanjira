@@ -13,13 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapActivity"/>
-        <activity android:name=".LoginAdmin"></activity>
-        <activity android:name=".EnterActivity" />
-        <activity android:name=".infoActivity" />
-        <activity android:name=".ShowSanjyraTree" />
-        <activity android:name=".addDataActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MapActivity"/>
+        <activity android:name=".activities.AdminAuthenticationActivity"></activity>
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.InfoActivity" />
+        <activity android:name=".activities.DeletePersonActivity" />
+        <activity android:name=".activities.ShowSanjyraTreeActivity" />
+        <activity android:name=".activities.ShowSanjyraActivity" />
+        <activity android:name=".activities.ShowSanjyraPersonListActivity" />
+        <activity android:name=".activities.SavePersonActivity" />
+        <activity android:name=".activities.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +36,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCRsXAjCygRUz6bunvLyPRorsWnxJkZ00Q"/>
+            android:value="AIzaSyDn_Y5Kw7omkbicSPHhaPKqQbeXUnpaoOs"/>
 
 
         <meta-data
