@@ -5,10 +5,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.kyrgyzpedigree.R;
+import com.example.kyrgyzpedigree.models.Podrod;
+import com.example.kyrgyzpedigree.models.Rod;
+import com.example.kyrgyzpedigree.service.DBService;
+
+import org.springframework.web.client.ResourceAccessException;
+
+import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class ShowSanjyraActivity extends AppCompatActivity {
@@ -16,7 +28,7 @@ public class ShowSanjyraActivity extends AppCompatActivity {
     Button button;
     Intent intent;
     //Spinner spinnerSanjyra , spinnerSanjyra2;
-    Spinner spinnerListRod , spinnerListPodrod;
+    Spinner spinnerListRod, spinnerListPodrod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,44 +43,49 @@ public class ShowSanjyraActivity extends AppCompatActivity {
         spinnerListRod = findViewById(R.id.spinnerListRod);
         spinnerListPodrod = findViewById(R.id.spinnerListPodrod);
 
-        final String division[] = {"Саруу", "Кушчу", "Карабагыш", "Мундуз", "Чонбагыш", "Кытай", "Жетиген", "Басыз"
-                , "Карачоро", "Саяк", "Монолдор", "Сарыбагыш", "Солто"
-                , "Бугу", "Азык", "Монгуш", "Черик", "Багыш", "Адыгине", "Жедигер", "Ават", "Бостон", "Кыдыршаа", "Доолос"
-                , "Найман", "Канды", "Кесек", "Жоокесек", "Каратейит"
-                , "Нойгут", "Кыпчак"};
-
-
-        final String div1[]={"Ачакей","Чокон","Ажыбек","Тен-Терт"};
-        final String div2[]={"Коткар","Кушчу2"};
-        final String div3[]={"Карабагыш1","Карабагыш2","Карабагыш3"};
-        final String div4[] = {"1", "2", "3"};
-        final String div5[] = {"1", "2", "3"};
-        final String div6[] = {"1", "2", "3"};
-        final String div7[] = {"1", "2", "3"};
-        final String div8[] = {"1", "2", "3"};
-        final String div9[] = {"1", "2", "3"};
-        final String div10[] = {"1", "2", "3"};
-        final String div11[] = {"1", "2", "3"};
-        final String div12[] = {"1", "2", "3"};
-        final String div13[] = {"1", "2", "3"};
-        final String div14[] = {"1", "2", "3"};
-        final String div15[] = {"1", "2", "3"};
-        final String div16[] = {"1", "2", "3"};
-        final String div17[] = {"1", "2", "3"};
-        final String div18[] = {"1", "2", "3"};
-        final String div19[] = {"1", "2", "3"};
-        final String div20[] = {"1", "2", "3"};
-        final String div21[] = {"1", "2", "3"};
-        final String div22[] = {"1", "2", "3"};
-        final String div23[] = {"1", "2", "3"};
-        final String div24[] = {"1", "2", "3"};
-        final String div25[] = {"1", "2", "3"};
-        final String div26[] = {"1", "2", "3"};
-        final String div27[] = {"1", "2", "3"};
-        final String div28[] = {"1", "2", "3"};
-        final String div29[] = {"1", "2", "3"};
-        final String div30[] = {"1", "2", "3"};
-        final String div31[] = {"1", "2", "3"};
+        DBService db = DBService.getInstance();
+        List<Rod> rodList;
+        try {
+            rodList = db.getRodList();
+        } catch (ResourceAccessException e) {
+            e.printStackTrace();
+            Toast toast2 = Toast.makeText(getApplicationContext(),
+                    "Problem with network", Toast.LENGTH_SHORT);
+            toast2.show();
+            return;
+        }
+        String[] division = rodList.stream().map(Rod::getName).toArray(String[]::new);
+        final String[] div1 = rodList.get(0).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div2 = rodList.get(1).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div3 = rodList.get(2).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div4 = rodList.get(3).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div5 = rodList.get(4).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div6 = rodList.get(5).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div7 = rodList.get(6).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div8 = rodList.get(7).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div9 = rodList.get(8).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div10 = rodList.get(9).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div11 = rodList.get(10).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div12 = rodList.get(11).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div13 = rodList.get(12).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div14 = rodList.get(13).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div15 = rodList.get(14).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div16 = rodList.get(15).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div17 = rodList.get(16).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div18 = rodList.get(17).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div19 = rodList.get(18).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div20 = rodList.get(19).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div21 = rodList.get(20).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div22 = rodList.get(21).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div23 = rodList.get(22).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div24 = rodList.get(23).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div25 = rodList.get(24).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div26 = rodList.get(25).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div27 = rodList.get(26).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div28 = rodList.get(27).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div29 = rodList.get(28).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div30 = rodList.get(29).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
+        final String[] div31 = rodList.get(30).getPodrodList().stream().map(Podrod::getName).toArray(String[]::new);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, division);
@@ -78,7 +95,7 @@ public class ShowSanjyraActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String itemSelect = division[position];
-                Toast.makeText(ShowSanjyraActivity.this, "Выбрано : " + itemSelect, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowSanjyraActivity.this, "Select Item : " + itemSelect, Toast.LENGTH_SHORT).show();
                 if (position == 0) {
                     ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(ShowSanjyraActivity.this, android.R.layout.simple_spinner_dropdown_item, div1);
                     spinnerListPodrod.setAdapter(adapter1);

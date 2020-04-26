@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.kyrgyzpedigree.util.GlobalVariables;
 import com.example.kyrgyzpedigree.util.PersonStaticFields;
 import com.example.kyrgyzpedigree.R;
 import com.example.kyrgyzpedigree.models.Person;
@@ -120,6 +121,11 @@ public class SavePersonActivity extends AppCompatActivity {
         }
         if (PersonStaticFields.namemom != null) {
             editTextNamemom.setText(PersonStaticFields.namemom);
+        }
+        String selectedPlaceFromMapActivity = PersonStaticFields.mestojitelstva;
+        if (selectedPlaceFromMapActivity != null) {
+            PersonStaticFields.mestojitelstva = null;
+            editTextMestojitelstva.setText(selectedPlaceFromMapActivity);
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -356,7 +362,7 @@ public class SavePersonActivity extends AppCompatActivity {
                 PersonStaticFields.namemom = editTextNamemom.getText().toString();
                 PersonStaticFields.rod = spinnerListRod.getSelectedItem().toString();
                 PersonStaticFields.podrod = spinnerListPodrod.getSelectedItem().toString();
-                intent = new Intent(SavePersonActivity.this, /*Activity_Maps*/MapActivity.class);
+                intent = new Intent(SavePersonActivity.this, MapActivity.class);
                 startActivity(intent);
             }
         });
