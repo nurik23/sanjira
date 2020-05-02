@@ -16,7 +16,7 @@ public class Rod {
     private String name;
     @JsonManagedReference
     @Fetch(value = FetchMode.JOIN)
-    @OneToMany(mappedBy = "rod", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "rod", fetch = FetchType.LAZY)
     private List<Podrod> podrodList;
 
     public Rod() {

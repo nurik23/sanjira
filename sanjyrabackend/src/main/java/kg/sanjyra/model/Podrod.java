@@ -22,7 +22,7 @@ public class Podrod {
     @JsonManagedReference
     @JsonIgnore
     @Fetch(value = FetchMode.JOIN)
-    @OneToMany(mappedBy = "podrod", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "podrod", fetch = FetchType.LAZY)
     private List<Person> personList;
 
     public Podrod() {
