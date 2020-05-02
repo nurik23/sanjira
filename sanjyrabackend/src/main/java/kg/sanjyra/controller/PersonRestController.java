@@ -44,7 +44,7 @@ public class PersonRestController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     public ResponseEntity deletePersonById(@PathVariable int id) {
         personRepository.deleteById(id);
         return new ResponseEntity(HttpStatus.OK);

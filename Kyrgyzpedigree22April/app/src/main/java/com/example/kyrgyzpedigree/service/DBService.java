@@ -26,8 +26,8 @@ public class DBService {
 
     private static DBService DBService;
     private RestTemplate restTemplate;
-    private String serverUrl = "http://18.219.37.92:8083";
-    //    private String serverUrl = "http://192.168.43.182:8083";
+    //private String serverUrl = "http://18.219.37.92:8083";
+    private String serverUrl = "http://sanjyra.envs.subut.ai:8083";
     private List<Rod> rodList;
     private Map<String, Rod> rodNameToRodMap = new HashMap<>();
     private Map<String, Podrod> podrodNameToPodrodMap = new HashMap<>();
