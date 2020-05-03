@@ -83,17 +83,19 @@ public class DataInit {
 		{"Тогонбай", "Асан", "Адыл", "Самансур"}
 		//он канат - Ак уул 
 		};
-        int i = 0;
-        for (; i < podrodArray.length; i++) {
+        List<Podrod> allPodrodList = new ArrayList<>();
+        for (int i = 0; i < podrodArray.length; i++) {
             List<Podrod> podrodList = new ArrayList<>();
             for (int j = 0; j < podrodArray[i].length; j++) {
                 Podrod podrod = new Podrod(podrodArray[i][j], rodList.get(i));
                 podrodList.add(podrod);
+		allPodrodList.add(podrod);
             }
             Rod rod = rodList.get(i);
             rod.setPodrodList(podrodList);
             rodList.set(i, rod);
         }
+	podrodRepository.saveAll(allPodrodList);
         rodRepository.saveAll(rodList);
     }
 }
