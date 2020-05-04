@@ -108,4 +108,18 @@ public class Person {
     public void setPodrod(Podrod podrod) {
         this.podrod = podrod;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", mestojitelstva='" + mestojitelstva + '\'' +
+                ", godrojdeniya='" + godrojdeniya + '\'' +
+                ", namedad='" + namedad + '\'' +
+                ", namemom='" + namemom + '\'' +
+                ", podrod=" + podrod +
+                '}';
+    }
 }
