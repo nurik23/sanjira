@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -94,7 +95,12 @@ public class DataInit {
             rodList.set(i, rod);
         }
         rodRepository.saveAll(rodList);
-        List<Person> personList = PersonFillUtil.generatePersonList();
+        List<Person> personList = null;
+        try {
+            personList = PersonFillUtil.generatePersonList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         List<Podrod> podrodList = podrodRepository.findAll();
         int counter = 0;
         for (Podrod podrod : podrodList) {

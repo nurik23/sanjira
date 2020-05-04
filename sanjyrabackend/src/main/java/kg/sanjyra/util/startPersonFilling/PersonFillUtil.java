@@ -1,6 +1,7 @@
 package kg.sanjyra.util.startPersonFilling;
 
 import kg.sanjyra.model.Person;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
@@ -11,24 +12,22 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PersonFillUtil {
-    public static List<Person> generatePersonList() {
+    public static List<Person> generatePersonList() throws IOException {
         List<PersonDto> allPersonDtoList = new ArrayList<>();
         List<String> placesList = new ArrayList<>();
         List<String> mailList = Arrays.asList("@mail.ru", "@inbox.ru", "@bk.ru", "@gmail.com", "@yandex.ru", "@yahoo.com");
         List<PersonDto> malePersonDtoList = new ArrayList<>();
         List<PersonDto> femalePersonDtoList = new ArrayList<>();
         String line;
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ResourceUtils.getFile("classpath:places.txt"))))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("places.txt")))) {
             do {
                 line = bufferedReader.readLine();
                 placesList.add(line);
             }
             while (bufferedReader.ready());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         PersonDto personDto = null;
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ResourceUtils.getFile("classpath:names.txt"))))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("names.txt")))) {
             do {
                 line = bufferedReader.readLine();
                 if (line.isEmpty() || line.length() < 5) continue;
@@ -45,15 +44,16 @@ public class PersonFillUtil {
                 } else {
                     personDto = new PersonDto(line);
                     String[] fio = line.split(" ");
-                    if (fio[0].endsWith("А") || line.contains("КЫЗЫ") || (fio.length > 2 && fio[2].endsWith("А"))) {
+                    if (fio[0].endsWith("А") ||fio[0].endsWith("а") || line.contains("КЫЗЫ")|| line.contains("кызы") || (fio.length > 2 && fio[2].endsWith("А"))) {
                         personDto.setFemale(true);
                     }
                 }
             }
             while (bufferedReader.ready());
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        malePersonDtoList.forEach(System.out::println);
+        System.out.println("male size : " + malePersonDtoList.size());
+        System.out.println("female size : " + femalePersonDtoList.size());
         for (int i = 0; i < malePersonDtoList.size(); i++) {
             personDto = malePersonDtoList.get(i);
             int randomIndex;
