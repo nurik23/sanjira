@@ -60,6 +60,8 @@ public class RussianToEnglishParser {
                 return 'z';
             case 'И':
                 return 'i';
+            case 'Й':
+                return 'y';
             case 'К':
                 return 'k';
             case 'Л':
