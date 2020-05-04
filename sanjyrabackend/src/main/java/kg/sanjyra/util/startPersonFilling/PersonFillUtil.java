@@ -5,6 +5,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class PersonFillUtil {
         List<PersonDto> malePersonDtoList = new ArrayList<>();
         List<PersonDto> femalePersonDtoList = new ArrayList<>();
         String line;
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("places.txt")))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("places.txt"), Charset.forName("UTF-8")))) {
             do {
                 line = bufferedReader.readLine();
                 placesList.add(line);
@@ -27,7 +28,7 @@ public class PersonFillUtil {
             while (bufferedReader.ready());
         }
         PersonDto personDto = null;
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("names.txt")))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(PersonFillUtil.class.getClassLoader().getResourceAsStream("names.txt"), Charset.forName("UTF-8")))) {
             do {
                 line = bufferedReader.readLine();
                 if (line.isEmpty() || line.length() < 5) continue;
@@ -51,9 +52,7 @@ public class PersonFillUtil {
             }
             while (bufferedReader.ready());
         }
-        malePersonDtoList.forEach(System.out::println);
-        System.out.println("male size : " + malePersonDtoList.size());
-        System.out.println("female size : " + femalePersonDtoList.size());
+
         for (int i = 0; i < malePersonDtoList.size(); i++) {
             personDto = malePersonDtoList.get(i);
             int randomIndex;
