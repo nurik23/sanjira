@@ -96,12 +96,18 @@ public class DataInit {
         rodRepository.saveAll(rodList);
         List<Person> personList = PersonFillUtil.generatePersonList();
         List<Podrod> podrodList = podrodRepository.findAll();
-        for (int i = 0, counter = 0; i < podrodList.size(); i++) {
-            Podrod podrod = podrodList.get(i);
+        int counter = 0;
+        for (Podrod podrod : podrodList) {
             for (int j = 0; j < 4; j++, counter++) {
                 Person person = personList.get(counter);
                 person.setPodrod(podrod);
             }
+        }
+        while (counter < personList.size()) {
+            Person person = personList.get(counter);
+            Podrod podrod = podrodList.get((int) (Math.random() * podrodList.size()));
+            person.setPodrod(podrod);
+            counter++;
         }
         personRepository.saveAll(personList);
     }
