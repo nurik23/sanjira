@@ -14,7 +14,7 @@ public class PersonFillUtil {
     public static List<Person> generatePersonList() {
         List<PersonDto> allPersonDtoList = new ArrayList<>();
         List<String> placesList = new ArrayList<>();
-        List<String> mailList = Arrays.asList("@mail.ru", "@inbox.ru", "@bk.ru", "@gmail.com", "@yandex.ru", "@yahoo.ru");
+        List<String> mailList = Arrays.asList("@mail.ru", "@inbox.ru", "@bk.ru", "@gmail.com", "@yandex.ru", "@yahoo.com");
         List<PersonDto> malePersonDtoList = new ArrayList<>();
         List<PersonDto> femalePersonDtoList = new ArrayList<>();
         String line;
