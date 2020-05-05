@@ -35,7 +35,7 @@ public class PersonRestController {
         Podrod podrodById = podrodRepository.findById(podrodId).orElse(new Podrod());
         person.setPodrod(podrodById);
         person.setPodrodName(podrodById.getName());
-        person.setPodrodName(podrodById.getRod().getName());
+        person.setRodName(podrodById.getRod().getName());
         personRepository.save(person);
         sendEmail(person, personRepository.findAllByPodrodId(podrodById.getId()));
         return new ResponseEntity(HttpStatus.OK);
