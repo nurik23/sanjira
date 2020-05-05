@@ -3,6 +3,7 @@ package com.example.kyrgyzpedigree.service;
 import android.os.StrictMode;
 
 import com.example.kyrgyzpedigree.models.Person;
+import com.example.kyrgyzpedigree.models.PersonDto;
 import com.example.kyrgyzpedigree.models.Podrod;
 import com.example.kyrgyzpedigree.models.Rod;
 
@@ -26,8 +27,8 @@ public class DBService {
 
     private static DBService DBService;
     private RestTemplate restTemplate;
-    //private String serverUrl = "http://18.219.37.92:8083";
-    private String serverUrl = "http://sanjyra.envs.subut.ai:8083";
+//    private String serverUrl = "http://localhost:8083";
+        private String serverUrl = "http://sanjyra.envs.subut.ai:8083";
     private List<Rod> rodList;
     private Map<String, Rod> rodNameToRodMap = new HashMap<>();
     private Map<String, Podrod> podrodNameToPodrodMap = new HashMap<>();
@@ -73,6 +74,11 @@ public class DBService {
     public List<Person> getAllPersons() {
         ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/person/all", List.class);
         return (List<Person>) allPersonsResponseEntity.getBody();
+    }
+
+    public List<PersonDto> getAllPersonsByNameLike(String nameRegex) {
+        ResponseEntity<List> allPersonsResponseEntity = getRestTemplate().getForEntity(serverUrl + "/person/search/" + nameRegex, List.class);
+        return (List<PersonDto>) allPersonsResponseEntity.getBody().stream().map(map -> new PersonDto((Map<String, Object>) map)).collect(Collectors.toList());
     }
 
     public List<Person> getPersonListByPodrodId(int podrodId) {

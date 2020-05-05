@@ -56,6 +56,18 @@
                 android:textColor="#4C3D19"
                 android:textStyle="bold|italic"
                 android:text="@string/btn_mainact_showsanjyra" />
+            <Button
+                android:id="@+id/btnSearchPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/buttonshape"
+                android:clickable="true"
+                android:textColor="#4C3D19"
+                android:textStyle="bold|italic"
+                android:text="Поиск людей" />
 
             <Button
                 android:id="@+id/btnTree"

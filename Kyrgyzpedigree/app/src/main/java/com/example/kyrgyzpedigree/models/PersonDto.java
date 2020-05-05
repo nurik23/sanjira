@@ -1,7 +1,5 @@
 package com.example.kyrgyzpedigree.models;
 
-import com.example.kyrgyzpedigree.models.Person;
-
 import java.util.Map;
 
 public class PersonDto {
@@ -12,6 +10,8 @@ public class PersonDto {
     private String godrojdeniya;
     private String namedad;
     private String namemom;
+    private String podrodName;
+    private String rodName;
 
     public PersonDto(Person person) {
         this.id = person.getId();
@@ -23,14 +23,32 @@ public class PersonDto {
         this.namemom = person.getNamemom();
     }
 
-    public PersonDto(Map<String, String> map) {
-        this.id = Integer.parseInt(map.get("id"));
-        this.name = map.get("name");
-        this.email = map.get("email");
-        this.mestojitelstva = map.get("mestojitelstva");
-        this.godrojdeniya = map.get("godrojdeniya");
-        this.namedad = map.get("namedad");
-        this.namemom = map.get("namemom");
+    public PersonDto(Map<String, Object> map) {
+        this.id = (int) map.get("id");
+        this.name = (String) map.get("name");
+        this.email = (String) map.get("email");
+        this.mestojitelstva = (String) map.get("mestojitelstva");
+        this.godrojdeniya = (String) map.get("godrojdeniya");
+        this.namedad = (String) map.get("namedad");
+        this.namemom = (String) map.get("namemom");
+        this.podrodName = (String) map.get("podrodName");
+        this.rodName = (String) map.get("rodName");
+    }
+
+    public String getRodName() {
+        return rodName;
+    }
+
+    public void setRodName(String rodName) {
+        this.rodName = rodName;
+    }
+
+    public String getPodrodName() {
+        return podrodName;
+    }
+
+    public void setPodrodName(String podrodName) {
+        this.podrodName = podrodName;
     }
 
     public int getId() {
@@ -91,14 +109,20 @@ public class PersonDto {
 
     @Override
     public String toString() {
-        return
-                "ID :" + id +
-                        "\n"+"ФИО :\t" + name +
-                        "\n"+"Почта :\t" + email +
-                        "\n"+"Место проживания :\t" + mestojitelstva +
-                        "\n"+"Дата рождения :\t" + godrojdeniya +
-                        "\n"+"ФИО отца :\t" + namedad +
-                        "\n"+"ФИО матери :\t" + namemom +"\n"
-                       ;
+        String result = "ID :" + id +
+                "\n" + "ФИО :\t" + name +
+                "\n" + "Почта :\t" + email +
+                "\n" + "Место проживания :\t" + mestojitelstva +
+                "\n" + "Дата рождения :\t" + godrojdeniya +
+                "\n" + "ФИО отца :\t" + namedad +
+                "\n" + "ФИО матери :\t" + namemom;
+        if (podrodName != null) {
+            result += "\n" + "Подрод :\t" + podrodName;
+        }
+        if (rodName != null) {
+            result += "\n" + "Род :\t" + rodName;
+        }
+        result += "\n\n";
+        return result;
     }
 }

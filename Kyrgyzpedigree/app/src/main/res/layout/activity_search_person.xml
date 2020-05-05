@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sanjyraColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sanjyraColor"
+        android:orientation="vertical"
+        tools:context=".activities.ShowSanjyraActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="338dp"
+                android:src="@drawable/derevo_sanjyra" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Введите ФИО человека"
+                android:textAlignment="center"
+                android:textColor="@color/textColor"
+                android:textSize="25dp"
+                tools:gravity="center" />
+
+            <EditText
+                android:id="@+id/editTextSearchPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="введите фио для поиска"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/btnSearchPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/buttonshape"
+                android:clickable="true"
+                android:text="@string/btn_select_showsanjyra"
+                android:textColor="#4C3D19"
+                android:textSize="20dp"
+
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

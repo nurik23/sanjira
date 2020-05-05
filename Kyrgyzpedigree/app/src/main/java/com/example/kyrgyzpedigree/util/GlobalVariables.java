@@ -1,16 +1,38 @@
 package com.example.kyrgyzpedigree.util;
 
+import com.example.kyrgyzpedigree.models.PersonDto;
+
+import java.util.List;
+
 public class GlobalVariables {
     private static GlobalVariables globalVariables;
     private boolean isAdmin;
     private Class previousActivityForDeletePersonActivity;
     private String podrodNameForPreviousActivityInShowSanjyraTreeActivity;
+    private List<PersonDto> personListFromSearch;
+    private String personNameRegexFromSearch;
 
     public static GlobalVariables getInstance() {
         if (globalVariables == null) {
             globalVariables = new GlobalVariables();
         }
         return globalVariables;
+    }
+
+    public String getPersonNameRegexFromSearch() {
+        return personNameRegexFromSearch;
+    }
+
+    public void setPersonNameRegexFromSearch(String personNameRegexFromSearch) {
+        this.personNameRegexFromSearch = personNameRegexFromSearch;
+    }
+
+    public List<PersonDto> getPersonListFromSearch() {
+        return personListFromSearch;
+    }
+
+    public void setPersonListFromSearch(List<PersonDto> personListFromSearch) {
+        this.personListFromSearch = personListFromSearch;
     }
 
     public boolean isAdmin() {

@@ -19,6 +19,8 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.MapActivity" />
         <activity android:name=".activities.InfoActivity" />
+        <activity android:name=".activities.SearchPersonActivity" />
+        <activity android:name=".activities.SearchPersonResultActivity" />
         <activity android:name=".activities.DeletePersonActivity" />
         <activity android:name=".activities.ShowSanjyraTreeActivity" />
         <activity android:name=".activities.ShowSanjyraActivity" />

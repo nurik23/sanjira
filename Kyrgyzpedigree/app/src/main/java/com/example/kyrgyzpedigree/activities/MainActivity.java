@@ -1,7 +1,6 @@
 package com.example.kyrgyzpedigree.activities;
 
 import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.kyrgyzpedigree.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAdmin, btnGuest,btnTree, btnHome;
+    Button btnAdmin, btnGuest, btnTree, btnHome, btnSearchPerson;
     Intent intent;
     Intent intentToMenu1, intentToMenu2;
 
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
         btnGuest = findViewById(R.id.btnGuest);
         btnTree = findViewById(R.id.btnTree);
         btnHome = findViewById(R.id.btnHome);
+        btnSearchPerson = findViewById(R.id.btnSearchPerson);
+
+        btnSearchPerson.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SearchPersonActivity.class));
+        });
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,18 +68,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.help:
                 Toast toast2 = Toast.makeText(getApplicationContext(),
                         "О приложении", Toast.LENGTH_SHORT);
