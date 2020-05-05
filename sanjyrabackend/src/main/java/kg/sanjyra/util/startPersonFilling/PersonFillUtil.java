@@ -52,7 +52,9 @@ public class PersonFillUtil {
             }
             while (bufferedReader.ready());
         }
-
+        malePersonDtoList.forEach(System.out::println);
+        System.out.println("male size : " + malePersonDtoList.size());
+        System.out.println("female size : " + femalePersonDtoList.size());
         for (int i = 0; i < malePersonDtoList.size(); i++) {
             personDto = malePersonDtoList.get(i);
             int randomIndex;

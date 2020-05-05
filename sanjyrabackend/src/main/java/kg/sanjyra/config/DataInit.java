@@ -107,12 +107,14 @@ public class DataInit {
             for (int j = 0; j < 4; j++, counter++) {
                 Person person = personList.get(counter);
                 person.setPodrod(podrod);
+                person.setPodrodName(podrod.getName());
             }
         }
         while (counter < personList.size()) {
             Person person = personList.get(counter);
             Podrod podrod = podrodList.get((int) (Math.random() * podrodList.size()));
             person.setPodrod(podrod);
+            person.setPodrodName(podrod.getName());
             counter++;
         }
         personRepository.saveAll(personList);

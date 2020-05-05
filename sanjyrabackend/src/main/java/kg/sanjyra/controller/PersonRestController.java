@@ -21,6 +21,7 @@ import java.util.Properties;
 public class PersonRestController {
     private PersonRepository personRepository;
     private PodrodRepository podrodRepository;
+
     @Autowired
     public PersonRestController(PersonRepository personRepository, PodrodRepository podrodRepository) {
         this.personRepository = personRepository;
@@ -33,6 +34,7 @@ public class PersonRestController {
         int podrodId = Integer.parseInt(httpEntity.getHeaders().get("podrodId").get(0));
         Podrod podrodById = podrodRepository.findById(podrodId).orElse(new Podrod());
         person.setPodrod(podrodById);
+        person.setPodrodName(podrodById.getName());
         personRepository.save(person);
         sendEmail(person, personRepository.findAllByPodrodId(podrodById.getId()));
         return new ResponseEntity(HttpStatus.OK);
@@ -65,6 +67,11 @@ public class PersonRestController {
         return new ResponseEntity<>(personRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/search/{name}")
+    public ResponseEntity<List> getPersonList(@PathVariable String name) {
+        return new ResponseEntity<>(personRepository.findAllByNameLike("%" + name + "%"), HttpStatus.OK);
+    }
+
     private void sendEmail(Person registeredPerson, List<Person> receivers) {
         final String username = "sanjyra.kyrgyzfamile@bk.ru";
         final String password = "Karpinka23";
@@ -84,7 +91,7 @@ public class PersonRestController {
 
         receivers.forEach(receiver -> {
             String theme = "Санжыра";
-            String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName()  + "   " +  registeredPerson.getGodrojdeniya()  + " года рождения !  ";
+            String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName() + "   " + registeredPerson.getGodrojdeniya() + " года рождения !  ";
             try {
                 MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(username));

@@ -19,6 +19,8 @@ public class Person {
     @ManyToOne
     @JoinColumn(name = "podrod_id")
     private Podrod podrod;
+    private String podrodName;
+
 
     public Person() {
     }
@@ -44,6 +46,13 @@ public class Person {
         this.podrod = podrod;
     }
 
+    public String getPodrodName() {
+        return podrodName;
+    }
+
+    public void setPodrodName(String podrodName) {
+        this.podrodName = podrodName;
+    }
 
     public int getId() {
         return id;

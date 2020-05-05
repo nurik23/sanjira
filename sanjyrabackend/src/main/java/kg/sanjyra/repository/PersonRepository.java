@@ -13,4 +13,6 @@ import java.util.List;
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     List<Person> findAllByPodrodId(int podrodId);
+
+    List<Person> findAllByNameLike(String nameRegex);
 }

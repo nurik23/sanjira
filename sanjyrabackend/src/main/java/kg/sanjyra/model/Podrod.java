@@ -19,7 +19,7 @@ public class Podrod {
     @ManyToOne
     @JoinColumn(name = "rod_id")
     private Rod rod;
-    @JsonManagedReference
+//    @JsonManagedReference
     @JsonIgnore
     @Fetch(value = FetchMode.JOIN)
     @OneToMany(mappedBy = "podrod", fetch = FetchType.LAZY)
