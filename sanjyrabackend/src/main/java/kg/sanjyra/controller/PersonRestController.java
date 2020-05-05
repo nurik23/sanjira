@@ -35,6 +35,7 @@ public class PersonRestController {
         Podrod podrodById = podrodRepository.findById(podrodId).orElse(new Podrod());
         person.setPodrod(podrodById);
         person.setPodrodName(podrodById.getName());
+        person.setPodrodName(podrodById.getRod().getName());
         personRepository.save(person);
         sendEmail(person, personRepository.findAllByPodrodId(podrodById.getId()));
         return new ResponseEntity(HttpStatus.OK);
@@ -91,7 +92,7 @@ public class PersonRestController {
 
         receivers.forEach(receiver -> {
             String theme = "Санжыра";
-            String description = "В вашем роду " + registeredPerson.getPodrod() + " зарегистрировался " + registeredPerson.getName() + "   " + registeredPerson.getGodrojdeniya() + " года рождения !  ";
+            String description = "В вашем роду " + registeredPerson.getPodrod().getName() + " зарегистрировался " + registeredPerson.getName() + "   " + registeredPerson.getGodrojdeniya() + " года рождения !  ";
             try {
                 MimeMessage message = new MimeMessage(session);
                 message.setFrom(new InternetAddress(username));

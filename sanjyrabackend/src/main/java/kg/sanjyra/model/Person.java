@@ -19,6 +19,7 @@ public class Person {
     @ManyToOne
     @JoinColumn(name = "podrod_id")
     private Podrod podrod;
+    private String rodName;
     private String podrodName;
 
 
@@ -118,6 +119,14 @@ public class Person {
         this.podrod = podrod;
     }
 
+    public String getRodName() {
+        return rodName;
+    }
+
+    public void setRodName(String rodName) {
+        this.rodName = rodName;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -128,7 +137,8 @@ public class Person {
                 ", godrojdeniya='" + godrojdeniya + '\'' +
                 ", namedad='" + namedad + '\'' +
                 ", namemom='" + namemom + '\'' +
-                ", podrod=" + podrod +
+                ", rodName='" + rodName + '\'' +
+                ", podrodName='" + podrodName + '\'' +
                 '}';
     }
 }
