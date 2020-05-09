@@ -22,13 +22,13 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="338dp"
-                android:src="@drawable/derevo_sanjyra" />
+                android:src="@drawable/sanj_log2" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Введите ФИО человека"
+                android:text="Введите ФИО для поиска человека"
                 android:textAlignment="center"
                 android:textColor="@color/textColor"
                 android:textSize="25dp"
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:hint="введите фио для поиска"
+                android:hint="введите ФИО для поиска"
                 android:textAlignment="center" />
 
             <Button
@@ -51,7 +51,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/buttonshape"
                 android:clickable="true"
-                android:text="@string/btn_select_showsanjyra"
+                android:text="Поиск"
                 android:textColor="#4C3D19"
                 android:textSize="20dp"
 

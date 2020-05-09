@@ -84,7 +84,7 @@ public class ShowSanjyraPersonListActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete_note:
                 Toast toast1 = Toast.makeText(getApplicationContext(),
-                        "Removal Window", Toast.LENGTH_SHORT);
+                        "Окно удаления", Toast.LENGTH_SHORT);
                 toast1.show();
                 GlobalVariables.getInstance().setPreviousActivityForDeletePersonActivity(this.getClass());
                 GlobalVariables.getInstance().setPodrodNameForPreviousActivityInShowSanjyraTreeActivity(podrodName);

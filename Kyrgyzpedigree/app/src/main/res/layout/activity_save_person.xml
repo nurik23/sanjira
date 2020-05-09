@@ -24,6 +24,7 @@
                 android:layout_gravity="center"
                 android:text="@string/text_main_adddataact"
                 android:textColor="@color/textColor"
+                android:layout_marginLeft="15dp"
                 android:textSize="27dp"
                 tools:gravity="center" />
         </LinearLayout>
@@ -84,9 +85,12 @@
                 android:id="@+id/buttonMaps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#E0BF6C"
                 android:text="@string/text_mestojitel_adddataact"
-                android:textColor="@color/textColor"/>
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/buttonformap"
+                android:clickable="true"
+                android:textColor="#4C3D19"
+                android:textStyle="bold|italic"/>
 
             <EditText
                 android:id="@+id/editAdress"

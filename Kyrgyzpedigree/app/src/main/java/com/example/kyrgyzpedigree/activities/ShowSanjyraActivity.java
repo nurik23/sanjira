@@ -27,15 +27,14 @@ public class ShowSanjyraActivity extends AppCompatActivity {
 
     Button button;
     Intent intent;
-    //Spinner spinnerSanjyra , spinnerSanjyra2;
+
     Spinner spinnerListRod, spinnerListPodrod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_sanjyra);
-        // spinnerSanjyra = findViewById(R.id.spinnerSanjyra);  //Rod
-        //  spinnerSanjyra2 = findViewById(R.id.spinnerSanjyra2); //Podrod
+
         button = findViewById(R.id.btnSelect);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -95,7 +94,7 @@ public class ShowSanjyraActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String itemSelect = division[position];
-                Toast.makeText(ShowSanjyraActivity.this, "Select Item : " + itemSelect, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowSanjyraActivity.this, "Вы выбрали : " + itemSelect, Toast.LENGTH_SHORT).show();
                 if (position == 0) {
                     ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(ShowSanjyraActivity.this, android.R.layout.simple_spinner_dropdown_item, div1);
                     spinnerListPodrod.setAdapter(adapter1);
@@ -261,7 +260,7 @@ public class ShowSanjyraActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String selectedValueOfSanjyra = spinnerSanjyra.getSelectedItem().toString();
+
                 String selectedValueOfSanjyra = spinnerListPodrod.getSelectedItem().toString();
                 intent = new Intent(ShowSanjyraActivity.this, ShowSanjyraPersonListActivity.class);
                 intent.putExtra("selectedValue", selectedValueOfSanjyra);

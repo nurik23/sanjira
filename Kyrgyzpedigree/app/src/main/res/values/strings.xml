@@ -6,7 +6,7 @@
     <string name="btn_mainact_showsanjyra">Просмотреть "Санжыра"</string>
 
     <string name="btn_home">Домой</string>
-    <string name="text_main_adddataact">Введите ваши персональные данные</string>
+    <string name="text_main_adddataact">Введите ваши данные для сохранения в базу данных.</string>
     <string name="text_name_adddataact">Ф.И.О. :</string>
     <string name="text_familie_adddataact">Электронная почта :</string>
     <string name="text_burthday_adddataact">День рождения :</string>
@@ -22,9 +22,9 @@
     <string name="textSolKanat">Выбрать из сол канат</string>
     <string name="textIchkilik">Выбрать из ичкилик</string>
     <string name="selectacttosanjyra">Выберите из списка ниже</string>
-    <string name="text_deletenote"><![CDATA[Введите <ID> участника для удаления из базу данных]]></string>
-    <string name="textDescription1">Киргизское генеалогическое дерево - отличный способ найти своих родственников по генеалогическому древу.</string>
-    <string name="textDescription2">Киргизское генеалогическое дерево - это самый простой способ увидеть и увидеть, какие у вас родственники по родословной и где они живут.</string>
+    <string name="text_deletenote"><![CDATA[Введите <ID> человека для удаления из базы данных]]></string>
+    <string name="textDescription1">Кыргызское генеалогическое дерево - отличный способ найти своих родственников по генеалогическому древу.</string>
+    <string name="textDescription2">Кыргызское генеалогическое дерево - это самый простой способ увидеть и увидеть, какие у вас родственники по родословной и где они живут.</string>
     <string name="textDecription7"><![CDATA[* Вид на дерево <Санжыра> - родословная кыргызского народа.]]></string>
 
 

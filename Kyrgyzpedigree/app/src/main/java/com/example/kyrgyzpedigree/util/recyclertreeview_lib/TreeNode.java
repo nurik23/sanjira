@@ -11,7 +11,6 @@ public class TreeNode<T extends LayoutItemType> implements Cloneable {
     private List<TreeNode> childList;
     private boolean isExpand;
     private boolean isLocked;
-    //the rod_icon high
     private int height = UNDEFINE;
 
     private static final int UNDEFINE = -1;

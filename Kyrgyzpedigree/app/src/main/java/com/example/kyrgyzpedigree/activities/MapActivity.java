@@ -68,6 +68,7 @@ public class MapActivity extends FragmentActivity implements
         addressField = (EditText) findViewById(R.id.location_search);
         selectPlaceButton = findViewById(R.id.select_place);
         EditText addressField = (EditText) findViewById(R.id.location_search);
+
         selectPlaceButton.setOnClickListener(v -> {
             PersonStaticFields.mestojitelstva = addressField.getText().toString();
             startActivity(new Intent(MapActivity.this, SavePersonActivity.class));
@@ -233,7 +234,7 @@ public class MapActivity extends FragmentActivity implements
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("user Current Location");
+        markerOptions.title("Ваше место нахождения");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
 
         currentUserLocationMarker = mMap.addMarker(markerOptions);

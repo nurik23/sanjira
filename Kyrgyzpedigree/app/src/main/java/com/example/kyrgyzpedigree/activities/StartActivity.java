@@ -4,9 +4,11 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.kyrgyzpedigree.R;
 
@@ -23,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
 
         btnAddData = findViewById(R.id.btnAddData);
         btnShowSanjyra = findViewById(R.id.btnShowSanjyra);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btnAddData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,20 +43,30 @@ public class StartActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.help:
+                Toast toast2 = Toast.makeText(getApplicationContext(),
+                        "О приложении", Toast.LENGTH_SHORT);
+                toast2.show();
+                intentToMenu2 = new Intent(StartActivity.this, InfoActivity.class);
+                startActivity(intentToMenu2);
+                return true;
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 }

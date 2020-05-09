@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnTree = findViewById(R.id.btnTree);
         btnHome = findViewById(R.id.btnHome);
         btnSearchPerson = findViewById(R.id.btnSearchPerson);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btnSearchPerson.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, SearchPersonActivity.class));

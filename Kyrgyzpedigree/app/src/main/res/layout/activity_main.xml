@@ -20,10 +20,10 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="235dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:src="@drawable/logo_sanjyra" />
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/sanj_main" />
         </LinearLayout>
 
         <LinearLayout
@@ -94,7 +94,7 @@
                 android:clickable="true"
                 android:textColor="#4C3D19"
                 android:textStyle="bold|italic"
-                android:text="@string/btn_home" />
+                android:text="Выход" />
         </LinearLayout>
 
     </LinearLayout>

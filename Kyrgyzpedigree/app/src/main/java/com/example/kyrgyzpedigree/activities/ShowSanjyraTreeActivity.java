@@ -47,6 +47,7 @@ public class ShowSanjyraTreeActivity extends AppCompatActivity {
         initView();
         initData();
         Button btnHome = findViewById(R.id.btnHomeSanjyraTree);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnHome.setOnClickListener(v -> startActivity(new Intent(ShowSanjyraTreeActivity.this, MainActivity.class)));
     }
 

@@ -89,7 +89,7 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             @Override
             public void onClick(View v) {
                 TreeNode selectedNode = displayNodes.get(holder.getLayoutPosition());
-                // Prevent multi-click during the short interval.
+
                 try {
                     long lastClickTime = (long) holder.itemView.getTag();
                     if (System.currentTimeMillis() - lastClickTime < 500)
@@ -103,7 +103,7 @@ public class TreeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     return;
                 if (selectedNode.isLeaf())
                     return;
-                // This TreeNode was locked to click.
+
                 if (selectedNode.isLocked()) return;
                 boolean isExpand = selectedNode.isExpand();
                 int positionStart = displayNodes.indexOf(selectedNode) + 1;

@@ -8,34 +8,37 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp">
 
         <EditText
             android:id="@+id/location_search"
             android:layout_width="wrap_content"
-            android:layout_weight="8"
-            android:layout_height="50dp"
+            android:layout_weight="9.8"
+            android:layout_height="85dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:ems="10"
             android:textColorHint="@android:color/darker_gray"
-            android:hint="write any place name ..." />
+            android:textSize="14dp"
+            android:hint="Выберите город,нажмите поиск и 'OK' для записи в анкету" />
 
         <ImageButton
             android:id="@+id/search_address"
             android:layout_width="wrap_content"
-            android:layout_weight="3"
-            android:layout_height="50dp"
+            android:layout_weight="0.1"
+            android:layout_height="85dp"
             android:layout_alignParentTop="true"
             android:onClick="onClick"
             android:src="@mipmap/search"/>
         <Button
             android:id="@+id/select_place"
-            android:layout_width="50dp"
-            android:layout_weight="3"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_height="85dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
+            android:orientation="vertical"
             android:text="Ok" />
 
     </LinearLayout>
@@ -46,7 +49,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="85dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         tools:context=".MapsActivity" />
@@ -60,11 +63,12 @@
             android:id="@+id/schools_nearby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:contextClickable="true"
             android:onClick="onClick"
-            android:src="@mipmap/school"/>
+            android:src="@mipmap/school" />
 
     </RelativeLayout>
 

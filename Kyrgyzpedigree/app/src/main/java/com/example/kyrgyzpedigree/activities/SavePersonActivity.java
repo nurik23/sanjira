@@ -35,7 +35,7 @@ import java.util.List;
 public class SavePersonActivity extends AppCompatActivity {
 
     EditText editTextName, editTextEmail, editTextMestojitelstva, editTextNamedad, editTextNamemom;
-    //Spinner spinnerListRod, spinnerListPodrod;
+
     Spinner spinnerListRod, spinnerListPodrod;
     Button btnSave, btnOtmena, btnMaps;
     DBService db;
@@ -50,6 +50,7 @@ public class SavePersonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_save_person);
         db = DBService.getInstance();
         List<Rod> rodList = null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         try {
             rodList = db.getRodList();
         } catch (ResourceAccessException e) {
@@ -97,12 +98,7 @@ public class SavePersonActivity extends AppCompatActivity {
                 editTextGodrojdeniya.setText(date);
             }
         };
-        //editTextName.setText("Rinat");
-        //editTextEmail.setText("muratidinov@gmail.com");
-        //editTextMestojitelstva.setText("Kara-Tash");
-        //editTextGodrojdeniya.setText("28-12-1997");
-        //editTextNamedad.setText("Muratidin");
-        //editTextNamemom.setText("Mashraphan");
+
 
         if (PersonStaticFields.name != null) {
             editTextName.setText(PersonStaticFields.name);
@@ -386,7 +382,7 @@ public class SavePersonActivity extends AppCompatActivity {
                 Toast toastName = Toast.makeText(getApplicationContext(),
                         "Введите ФИО", Toast.LENGTH_SHORT);
                 Toast toastEmail = Toast.makeText(getApplicationContext(),
-                        "Введите эл почту", Toast.LENGTH_SHORT);
+                        "Введите электронную почту", Toast.LENGTH_SHORT);
                 Toast toastMestojitelstva = Toast.makeText(getApplicationContext(),
                         "Введите место проживания", Toast.LENGTH_SHORT);
                 Toast toastGodrojdeniya = Toast.makeText(getApplicationContext(),
@@ -414,7 +410,7 @@ public class SavePersonActivity extends AppCompatActivity {
                                         finish();
                                         PersonStaticFields.resetFields();
                                         Toast toast2 = Toast.makeText(getApplicationContext(),
-                                                "Успешно добавлено в базу данных.", Toast.LENGTH_SHORT);
+                                                "Данные успешно добавлены в базу данных.", Toast.LENGTH_SHORT);
                                         toast2.show();
                                         intent = new Intent(SavePersonActivity.this, MainActivity.class);
                                         startActivity(intent);
