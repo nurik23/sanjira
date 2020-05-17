@@ -27,6 +27,7 @@ public class DataInit {
     @Autowired
     private DbUtil dbUtil;
 
+
     @Autowired
     public DataInit(PersonRepository personRepository, RodRepository rodRepository, PodrodRepository podrodRepository) {
         this.personRepository = personRepository;
@@ -84,6 +85,7 @@ public class DataInit {
                 {"Тогонбай", "Асан", "Адыл", "Самансур"}
                 //он канат - Ак уул
         };
+        
         for (int i = 0; i < podrodArray.length; i++) {
             List<Podrod> podrodList = new ArrayList<>();
             for (int j = 0; j < podrodArray[i].length; j++) {
