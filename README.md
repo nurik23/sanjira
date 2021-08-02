@@ -9,3 +9,20 @@ And vice versa, transfers data from the database to the application using RestTe
 
 The mobile application itself is located in the Kyrgyzpedigree folder. 
 The entire project is located there and it is ready to be launched.
+
+
+------------<
+sudo apt-get update
+sudo apt install default-jdk
+sudo apt install maven    
+sudo apt install mysql-server
+sudo apt-get install git   
+git clone https://github.com/nurik23/sanjira.git 
+cd sanjira/  
+cd sanjyrabackend/ 
+--rm -rf target/
+mvn clean package
+cd target/
+nohup java -jar sanjyra-backend-1.0.jar &
+cat nohup.out
+------->
